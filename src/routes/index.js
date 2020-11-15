@@ -1,25 +1,29 @@
 
-import React from "react";
+import React, { Suspense, lazy } from 'react';
 import { Router, Route, Switch, Redirect } from 'react-router-dom';
 import { createBrowserHistory } from "history";
-import ToDo from '../pages/todo'
-import NotFound from '../pages/notFound'
+import RouteNProgress from '../utils/routeNProgress';
 const history = createBrowserHistory();
+
+const ToDo = lazy(() => import('../pages/todo'));
+const NotFound = lazy(() => import('../pages/notFound'));
 
 const App = () => {
   return (
     <>
       <Router history={history} >
-        {
-          window.location.pathname === '/' &&
-          <Redirect to={{
-            pathname: '/todo'
-          }} />
-        }
-        <Switch>
-          <Route path="/todo" component={ToDo} />
-          <Route component={NotFound} />
-        </Switch>
+        <Suspense fallback={<RouteNProgress />}>
+          {
+            window.location.pathname === '/' &&
+            <Redirect to={{
+              pathname: '/todo'
+            }} />
+          }
+          <Switch>
+            <Route path="/todo" component={ToDo} />
+            <Route component={NotFound} />
+          </Switch>
+        </Suspense>
       </Router>
     </>
   )

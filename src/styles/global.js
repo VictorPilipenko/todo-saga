@@ -44,6 +44,10 @@ const GlobalStyle = createGlobalStyle`
   ul, ol, li {
     list-style: none
   }
+
+  #nprogress .bar {
+    height: 4px;
+  }
 `;
 
 export default GlobalStyle;
