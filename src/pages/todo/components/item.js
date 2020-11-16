@@ -14,7 +14,7 @@ const Remove = styled.div`
   }
   display: none;
 `;
-const TodoItemBlock = styled.div`
+const TodoItemBlock = styled.li`
   display: flex;
   align-items: center;
   padding-top: 12px;

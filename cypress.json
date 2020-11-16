@@ -1,1 +1,7 @@
-{}
+{
+  "viewportWidth": 1920,
+  "viewportHeight": 1080,
+  "experimentalComponentTesting": true,
+  "componentFolder": "cypress/component",
+  "specFiles": "*spec.*"
+}

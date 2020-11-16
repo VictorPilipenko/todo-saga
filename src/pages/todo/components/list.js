@@ -2,7 +2,7 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import TodoItem from "../containers/item";
 
-const TodoListBlock = styled.div`
+const TodoListBlock = styled.ul`
   position: relative;
   flex: 1;
   padding: 20px 32px;

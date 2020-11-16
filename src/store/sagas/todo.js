@@ -19,7 +19,7 @@ export const deleteTodoSaga = createSaga("delete")
 
 export function* getTodosSaga() {
   try {
-    yield delay(2000)
+    yield delay(1000)
     const { data } = yield call(getAPI)
     yield put(getTodosSuccess(data))
   } catch (err) {
