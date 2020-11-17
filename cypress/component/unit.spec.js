@@ -11,12 +11,12 @@ describe('cypress-react-unit-test', () => {
     mount(<List
       data={[]}
       loading={false}
-      err={null}
+      err={null}s
     />)
     cy.contains('Добавьте, пожалуйста, чем заняться!')
   })
 
-  it('one item in list list', () => {
+  it('one item in list', () => {
     mount(
       <Provider store={store}>
         <List

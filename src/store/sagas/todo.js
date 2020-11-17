@@ -2,7 +2,7 @@ import { put, call, delay } from "redux-saga/effects";
 import { getAPI } from "../../api/todo";
 import combinedActions, { getTodosSuccess, getTodosFailure, getTodos } from "../actions/todo";
 
-const createSaga = sagaType => function* (action) {
+export const createSaga = sagaType => function* (action) {
   const combinedAction = combinedActions[sagaType]
   try {
     yield call(combinedAction.api, action.payload)
@@ -14,7 +14,7 @@ const createSaga = sagaType => function* (action) {
 }
 
 export const createTodoSaga = createSaga("create")
-export const markTodoDoneSaga = createSaga("mark")
+export const markTodoSaga = createSaga("mark")
 export const deleteTodoSaga = createSaga("delete")
 
 export function* getTodosSaga() {
