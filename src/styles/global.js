@@ -5,7 +5,7 @@ const GlobalStyle = createGlobalStyle`
   ${styledNormalize};
 
   html {
-    font-size: 10px;
+    font-size: calc( 24px + (22 - 18) * (( 100vw - 320px ) / (1920 - 320)));
     overflow-x: hidden;
     font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif
   }
