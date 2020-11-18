@@ -3,6 +3,9 @@ import React, { Suspense, lazy } from 'react';
 import { Router, Route, Switch, Redirect } from 'react-router-dom';
 import { createBrowserHistory } from "history";
 import RouteNProgress from '../utils/routeNProgress';
+import NProgress from 'nprogress'
+import config from '../config/nprogress'
+NProgress.configure(config)
 const history = createBrowserHistory();
 
 const ToDo = lazy(() => import('../pages/todo'));
