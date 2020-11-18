@@ -7,7 +7,7 @@ import TodoHead from "./containers/head";
 import TodoList from "./containers/list";
 import TodoCreate from "./containers/create";
 
-const pageTitle = "todo - About us."
+const pageTitle = "todo - Main Page"
 const pageDescription = "We love learning - every day, in every form."
 
 function App() {
