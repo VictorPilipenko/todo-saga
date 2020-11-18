@@ -1,6 +1,8 @@
 import React from "react";
 import styled, { css, keyframes } from "styled-components";
 import { MdAdd } from "react-icons/md";
+import { Input } from "../../../common/input";
+import { CircleButton } from "../../../common/button";
 
 const slideup = keyframes`
     from {
@@ -20,45 +22,7 @@ const slidedown = keyframes`
     opacity: 0;
   }  
 `;
-const CircleButton = styled.button`
-  background: #38d9a9;
-  &:hover {
-    background: #63e6be;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5), 0px 0px 1px rgba(0, 0, 0, 0.5);
-  }
-  &:active {
-    background: #20c997;
-  }
-  z-index: 5;
-  cursor: pointer;
-  width: 80px;
-  height: 80px;
-  font-size: 60px;
-  position: absolute;
-  left: 50%;
-  bottom: 0px;
-  transform: translate(-50%, 50%);
-  color: white;
-  border-radius: 50%;
-  border: none;
-  outline: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: 0.125s all ease-in;
-  ${props =>
-    props.open &&
-    css`
-      background: #ff6b6b;
-      &:hover {
-        background: #ff8787;
-      }
-      &:active {
-        background: #fa5252;
-      }
-      transform: translate(-50%, 50%) rotate(45deg);
-    `}
-`;
+
 const InsertFormPositioner = styled.div`
   width: 100%;
   bottom: 0;
@@ -83,15 +47,6 @@ const InsertForm = styled.form`
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
   border-top: 1px solid #e9ecef;
-`;
-const Input = styled.input`
-  padding: 12px;
-  border-radius: 4px;
-  border: 1px solid #dee2e6;
-  width: 100%;
-  outline: none;
-  font-size: 18px;
-  box-sizing: border-box;
 `;
 
 const TodoCreate = ({

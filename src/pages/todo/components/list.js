@@ -1,5 +1,7 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styled, { css } from "styled-components";
+import { Loader } from "../../../common/loader";
+import ListSkeleton from "../../../common/skeleton/list";
 import TodoItem from "../containers/item";
 
 const TodoListBlock = styled.ul`
@@ -8,26 +10,11 @@ const TodoListBlock = styled.ul`
   padding: 20px 32px;
   padding-bottom: 48px;
   overflow-y: auto;
-`;
-const rotate = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-`;
-const Loader = styled.div`
-  position: absolute;
-  top: 25%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  border: 3px solid #38d9a94f;
-  border-top: 3px solid #38d9a9bf;
-  border-radius: 50%;
-  width: 15px;
-  height: 15px;
-  animation: ${rotate} 0.8s ease-in-out infinite;
+  ${props =>
+    props.disabled &&
+    css`
+      pointer-events: none;
+    `}
 `;
 const Message = styled.div`
   margin: 30px auto;
@@ -39,10 +26,15 @@ const Message = styled.div`
 const TodoList = ({ data, loading, err }) => {
   return (
     <TodoListBlock disabled={loading}>
-      {data.map(({ id, ...otherProps }) => (
-        <TodoItem key={id} id={id} {...otherProps} />
-      ))}
-      {loading && <Loader />}
+      {
+        data.map(({ id, ...otherProps }) => (
+          <TodoItem key={id} id={id} {...otherProps} />
+        ))
+      }
+      {
+        loading && data.length === 0 ? <ListSkeleton /> :
+          loading && data.length > 0 && <Loader />
+      }
       {
         err ? <Message>{err.message}</Message> :
           !data.length && !loading && <Message>Добавьте, пожалуйста, чем заняться!</Message>
