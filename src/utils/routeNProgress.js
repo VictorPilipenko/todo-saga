@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
 import NProgress from 'nprogress'
+import { Loader } from '../common/loader';
 import 'nprogress/nprogress.css'
 
 const RouteNProgress = () => {
   useEffect(() => {
-    NProgress.configure({ showSpinner: false })
     NProgress.start()
 
     return () => {
@@ -12,7 +12,7 @@ const RouteNProgress = () => {
     };
   });
 
-  return <></>
+  return <Loader />
 };
 
 export default RouteNProgress
