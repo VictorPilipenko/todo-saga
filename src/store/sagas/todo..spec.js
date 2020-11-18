@@ -7,11 +7,6 @@ import { getTodosSaga, createSaga } from './todo'
 describe('getTodosSaga with redux-saga native testing', () => {
   const generator = cloneableGenerator(getTodosSaga)()
 
-  it('delay on 1000 ms', () => {
-    const result = generator.next().value
-    expect(result).toEqual(delay(1000))
-  })
-
   it('calls the API', () => {
     const result = generator.next().value
     expect(result).toEqual(call(getAPI))
