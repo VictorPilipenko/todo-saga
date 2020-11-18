@@ -1,5 +1,6 @@
-import { put, call, delay } from "redux-saga/effects";
+import { put, call } from "redux-saga/effects";
 import { getAPI } from "../../api/todo";
+import notification from "../../common/notification";
 import combinedActions, { getTodosSuccess, getTodosFailure, getTodos } from "../actions/todo";
 
 export const createSaga = sagaType => function* (action) {
@@ -7,9 +8,11 @@ export const createSaga = sagaType => function* (action) {
   try {
     yield call(combinedAction.api, action.payload)
     yield put(combinedAction.success())
+    notification.success(sagaType)
     yield put(getTodos())
   } catch (err) {
     yield put(combinedAction.failure(err))
+    notification.error(sagaType)
   }
 }
 
@@ -19,10 +22,11 @@ export const deleteTodoSaga = createSaga("delete")
 
 export function* getTodosSaga() {
   try {
-    yield delay(1000)
     const { data } = yield call(getAPI)
     yield put(getTodosSuccess(data))
+    notification.success("get")
   } catch (err) {
     yield put(getTodosFailure(err))
+    notification.error("get")
   }
 }
