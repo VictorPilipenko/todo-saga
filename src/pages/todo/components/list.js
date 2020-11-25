@@ -27,13 +27,13 @@ const TodoList = ({ data, loading, err }) => {
   return (
     <TodoListBlock disabled={loading}>
       {
-        data.map(({ id, ...otherProps }) => (
-          <TodoItem key={id} id={id} {...otherProps} />
+        data.map(({ ...otherProps }, key) => (
+          <TodoItem key={key} id={key} {...otherProps} />
         ))
       }
       {
         loading && data.length === 0 ? <ListSkeleton /> :
-          loading && data.length > 0 && <Loader />
+          loading && data.length > 0 && <Loader global/>
       }
       {
         err ? <Message>{err.message}</Message> :

@@ -7,7 +7,10 @@ export default React.memo(props => {
   const dispatch = useDispatch();
 
   const deleteTodoById = id => {
-    dispatch(deleteTodo(id))
+    const data = {
+      id
+    };
+    dispatch(deleteTodo(data))
   };
 
   const handleMarkTodoDone = useCallback(

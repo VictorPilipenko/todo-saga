@@ -1,6 +1,7 @@
 import React, { memo } from "react";
 import styled, { css } from "styled-components";
 import { MdDelete, MdDone } from "react-icons/md";
+import { Loader } from "../../../common/loader";
 
 const Remove = styled.div`
   display: flex;
@@ -26,9 +27,10 @@ const TodoItemBlock = styled.li`
   }
 `;
 const CheckCircle = styled.div`
-  width: 32px;
-  height: 32px;
-  border-radius: 16px;
+  position: relative;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
   border: 1px solid #ced4da;
   font-size: 24px;
   display: flex;
@@ -54,18 +56,20 @@ const Text = styled.div`
     `}
 `;
 
-const TodoItem = ({ id, done, text, markTodoDone, deleteTodoById }) => {
+const TodoItem = ({ details: { id, done, text }, markTodoDone, deleteTodoById, fetchingError, areFetching }) => {
   return (
     <TodoItemBlock>
-      <CheckCircle done={done} onClick={() => !done && markTodoDone(id)}>
+      <CheckCircle done={done} onClick={() => !done && !areFetching && markTodoDone(id)}>
         {done && <MdDone />}
+        {areFetching && <Loader />}
       </CheckCircle>
       <Text done={done}>{text}</Text>
       <Remove>
-        <MdDelete onClick={() => deleteTodoById(id)} />
+        <MdDelete onClick={() => !areFetching && deleteTodoById(id)} />
       </Remove>
+      {fetchingError && <Text>{fetchingError}</Text>}
     </TodoItemBlock>
-  );
+  )
 }
 
 export default memo(TodoItem);

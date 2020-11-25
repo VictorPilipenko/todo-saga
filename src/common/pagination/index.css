@@ -1,0 +1,48 @@
+.admin-pagination {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.admin-pagination div select{
+  background-color: white;
+  padding: 4px 2px;
+  border-radius: 2px;
+  border: 1px solid #ebebeb;
+  outline: none;
+  position: absolute;
+}
+.admin-pagination ul {
+  margin: auto;
+  text-align: center;
+  list-style: none;
+  padding: 0;
+}
+
+.admin-pagination ul li {
+  display: inline-block;
+  margin: 0;
+  background: #fff;
+  border: 1px solid #ebebeb;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.admin-pagination ul li a {
+  padding: 2px 4px;
+  display: block;
+  border: none;
+  outline: none;
+}
+
+.admin-pagination ul li:first-child {
+  border-radius: 4px 0 0 4px;
+}
+
+.admin-pagination ul li:last-child {
+  border-radius: 0 4px 4px 0;
+}
+
+.admin-pagination ul li:hover, .admin-pagination ul li.active {
+  background: #38d9a9;
+  color: #fff;
+}

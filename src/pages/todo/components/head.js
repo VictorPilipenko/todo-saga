@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 
 const TodoHeadBlock = styled.div`
@@ -12,21 +13,30 @@ const TodoHeadBlock = styled.div`
     font-size: 21px;
     color: #868e96;
   }
-  .tasks-left {
-    color: #20c997;
-    font-size: 18px;
-    margin-top: 40px;
-    font-weight: bold;
-  }
 `;
 
-const TodoHead = ({ todoCount, today }) => {
+const TodoHead = ({ get, today, stopHandle, getTodos }) => {
+  const history = useHistory()
   return (
     <TodoHeadBlock>
       <h1>{today}</h1>
-      <div className="tasks-left">осталось задач: {todoCount}</div>
+      <button
+        onClick={stopHandle}
+      >stop</button>
+      <button
+        onClick={getTodos}
+      >get</button>
+            <button
+        onClick={get}
+      >another get</button>
+      <button
+        onClick={() => {
+          stopHandle()
+          history.push('/sdsad')
+        }}
+      >page</button>
     </TodoHeadBlock>
   );
 }
 
-export default TodoHead
+export default React.memo(TodoHead)

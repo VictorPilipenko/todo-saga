@@ -12,7 +12,7 @@ const RouteNProgress = () => {
     };
   });
 
-  return <Loader />
+  return <Loader global />
 };
 
 export default RouteNProgress
