@@ -8,14 +8,18 @@ import store from "./store"
 import App from './routes'
 import CheckOnlineStatusModal from './utils/checkOnlineStatusModal'
 import CheckPageVisibilityStatus from './utils/checkPageVisibilityStatus'
+import AppLayout from './common/layout/app'
+import 'antd/dist/antd.css';
 
 ReactDOM.render(
   <Provider store={store}>
     <ThemeProvider theme={themeSchema}>
-      <CheckOnlineStatusModal />
-      <CheckPageVisibilityStatus />
-      <GlobalStyle />
-      <App />
+      <AppLayout>
+        <CheckOnlineStatusModal />
+        <CheckPageVisibilityStatus />
+        <GlobalStyle />
+        <App />
+      </AppLayout>
     </ThemeProvider>
   </Provider>,
   document.getElementById('root')
