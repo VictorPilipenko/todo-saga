@@ -1,16 +1,13 @@
 
 import cogoToast from "cogo-toast";
-
-const defaultOptions = {
-  position: "top-right"
-};
+import config from "../../config/notification";
 
 const notification = {
   error: message => {
     const { hide } = cogoToast.error(
       message || "error",
       {
-        ...defaultOptions,
+        ...config,
         onClick: () => hide()
       }
     );
@@ -19,20 +16,20 @@ const notification = {
     const { hide } = cogoToast.success(
       message || "success",
       {
-        ...defaultOptions,
+        ...config,
         onClick: () => hide()
       }
     );
   },
   warning: message => {
     const { hide } = cogoToast.warn(message || "warning", {
-      ...defaultOptions,
+      ...config,
       onClick: () => hide()
     });
   },
   info: message => {
     const { hide } = cogoToast.info(message || "info", {
-      ...defaultOptions,
+      ...config,
       onClick: () => hide()
     });
   },
