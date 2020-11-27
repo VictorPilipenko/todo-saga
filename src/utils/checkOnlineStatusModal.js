@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { useModal } from '../common/modal/default'
-import { useIsMount } from '../hooks/useIsMount'
+import { useIsFirstMount } from '../hooks/useIsFirstMount'
 import { useNavigatorOnLine } from '../hooks/useNavigatorOnLine'
 
 const CheckOnlineStatusModal = () => {
-  const isMount = useIsMount()
+  const isFirstMount = useIsFirstMount()
   const isOnline = useNavigatorOnLine()
   const [message, setMessage] = useState()
   const { showModal, renderModal } = useModal()
 
   useEffect(() => {
-    if (!isMount) {
+    if (!isFirstMount) {
       if (isOnline) {
         setMessage('доступ к сети восстановлен')
       }
