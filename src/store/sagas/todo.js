@@ -111,3 +111,12 @@ export function* getAnotherSaga() {
     }
   }
 }
+
+export function* getTodosOnLocationChangeSaga({ payload: { search } }) {
+  const urlParams = JSON.parse('{"' + decodeURI(search.substring(1)).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"') + '"}')
+  const pagination = {
+    page: Number.parseInt(urlParams.currentPage),
+    pageSize: Number.parseInt(urlParams.pageSize)
+  }
+  yield put(getTodos(pagination))
+}

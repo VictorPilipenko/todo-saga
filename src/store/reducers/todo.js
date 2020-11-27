@@ -23,6 +23,30 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case TYPES.SET_CURRENT_PAGE:
+      return {
+        ...state,
+        pagination: {
+          ...state.pagination,
+          currentPage: action.payload || state.pagination.currentPage
+        }
+      };
+    case TYPES.SET_PAGE_SIZE:
+      return {
+        ...state,
+        pagination: {
+          ...state.pagination,
+          pageSize: action.payload || state.pagination.pageSize
+        }
+      };
+    case TYPES.SET_TOTAL_PAGES:
+      return {
+        ...state,
+        pagination: {
+          ...state.pagination,
+          totalPages: action.payload || state.pagination.totalPages
+        }
+      };
     case TYPES.STOP_HANDLE:
       return {
         ...state,

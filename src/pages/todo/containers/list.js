@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Pagination from "../../../common/pagination";
-import { axiosCache } from "../../../config/axios";
-import { usePageVisibility } from "../../../hooks/usePageVisibility";
-import { useWindowFocus } from "../../../hooks/useWindowFocus";
 import { getTodos } from "../../../store/actions/todo";
 import TodoList from "../components/list";
 
 function TodoListContainer() {
-  const isWindowFocused = useWindowFocus()
-  const isVisible = usePageVisibility()
   const dispatch = useDispatch()
   const { items, pagination, loading, err } = useSelector(state => state.todos)
   const [pageSize, setPageSize] = useState(pagination.pageSize)
@@ -22,16 +17,6 @@ function TodoListContainer() {
       pageSize
     }))
   }
-
-  useEffect(() => {
-    if (isVisible && isWindowFocused) {
-      axiosCache.reset()
-      dispatch(getTodos({
-        page: currentPage,
-        pageSize
-      }))
-    }
-  }, [isVisible, isWindowFocused]) // eslint-disable-line
 
   useEffect(() => {
     if (!loading) {

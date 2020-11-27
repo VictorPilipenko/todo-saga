@@ -11,12 +11,9 @@ const cancellationFlow = saga => function* (action) {
 }
 
 export default function* todosSaga() {
-
   yield takeLatest(TYPES.GET_ANOTHER_REQUEST, cancellationFlow(getAnotherSaga))
   yield takeLatest(TYPES.GET_TODOS_REQUEST, cancellationFlow(getTodosSaga))
-  
   yield takeEvery(TYPES.CREATE_TODO_REQUEST, createTodoSaga)
   yield takeEvery(TYPES.MARK_TODO_DONE_REQUEST, markTodoSaga)
   yield takeEvery(TYPES.DELETE_TODO_REQUEST, deleteTodoSaga)
-
 }

@@ -26,6 +26,13 @@ export const deleteTodoFailure = createAction(TYPES.DELETE_TODO_FAILURE)
 
 export const getAnother = createAction(TYPES.GET_ANOTHER_REQUEST)
 
+export const setCurrentPage = createAction(TYPES.SET_CURRENT_PAGE) 
+export const setPageSize = createAction(TYPES.SET_PAGE_SIZE) 
+export const setTotalPages = createAction(TYPES.SET_TOTAL_PAGES) 
+
+export const getTodosOnLocationChange = createAction(TYPES.GET_TODOS_ON_LOCATION_CHANGE) 
+
+
 
 const combinedActions = {
   create: {
