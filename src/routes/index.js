@@ -9,6 +9,7 @@ NProgress.configure(config)
 const history = createBrowserHistory();
 
 const ToDo = lazy(() => import('../pages/todo'));
+const SignUp = lazy(() => import('../pages/signup'));
 const NotFound = lazy(() => import('../pages/notFound'));
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
           }
           <Switch>
             <Route path="/todo" component={ToDo} />
+            <Route path="/signup" component={SignUp} />
             <Route component={NotFound} />
           </Switch>
         </Suspense>
