@@ -1,6 +1,6 @@
-import React from "react";
-import { useHistory } from "react-router-dom";
-import styled from "styled-components";
+import React from "react"
+import styled from "styled-components"
+import Pagination from "../../../common/pagination"
 
 const TodoHeadBlock = styled.div`
   padding-top: 48px;
@@ -13,28 +13,20 @@ const TodoHeadBlock = styled.div`
     font-size: 21px;
     color: #868e96;
   }
-`;
+`
 
-const TodoHead = ({ get, today, stopHandle, getTodos }) => {
-  const history = useHistory()
+const TodoHead = ({ pagination, setPageSize, pageChangeHandler, loading }) => {
   return (
     <TodoHeadBlock>
-      <h1>{today}</h1>
-      <button
-        onClick={stopHandle}
-      >stop</button>
-      <button
-        onClick={getTodos}
-      >get</button>
-            <button
-        onClick={get}
-      >another get</button>
-      <button
-        onClick={() => {
-          stopHandle()
-          history.push('/sdsad')
-        }}
-      >page</button>
+      <Pagination
+        loading={loading}
+        currentPage={pagination.currentPage}
+        pageSize={pagination.pageSize}
+        totalPages={pagination.totalPages}
+        valueHandler={setPageSize}
+        pageChangeHandler={pageChangeHandler}
+        options={[1, 2, 3]}
+      />
     </TodoHeadBlock>
   );
 }

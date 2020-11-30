@@ -2,32 +2,31 @@ import React from 'react';
 import ReactPaginate from 'react-paginate';
 import "./index.css";
 
-const Pagination = (params) => {
-  const currentPage = params.currentPage ? params.currentPage - 1 : null; // first page is 0 that's why -1
+const Pagination = ({
+  currentPage, totalPages, pageChangeHandler, valueHandler, pageSize, options, loading
+}) => {
   return (
     <div className="admin-pagination">
       <ReactPaginate
         previousLabel={"<"}
         nextLabel={">"}
         breakLabel={'...'}
-        breakClassName={'break-me'}
-        pageCount={params.totalPages}
+        pageCount={totalPages}
         marginPagesDisplayed={2}
-        pageRangeDisplayed={5}
-        onPageChange={params.pageChangeHandler}
-        containerClassName={'pagination'}
-        subContainerClassName={'pages pagination'}
+        pageRangeDisplayed={3}
+        onPageChange={pageChangeHandler}
         activeClassName={'active'}
-        forcePage={currentPage}
+        forcePage={currentPage ? currentPage - 1 : null} // first page is 0 that's why -1
       />
       {
-        params.totalPages > 0 && <div>
+        totalPages > 0 && <div>
           <select
-            onChange={({ target: { value } }) => params.valueHandler(value)}
-            value={params.pageSize}
+            onChange={({ target: { value } }) => valueHandler(value)}
+            value={pageSize}
+            disabled={loading}
           >
             {
-              params.options.map(option => <option key={option} value={option}>{option}</option>)
+              options.map(option => <option key={option} value={option}>{option}</option>)
             }
           </select>
         </div>
