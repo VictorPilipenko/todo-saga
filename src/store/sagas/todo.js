@@ -98,25 +98,3 @@ export function* getTodosSaga(action) {
     }
   }
 }
-
-export function* getAnotherSaga() {
-  try {
-    yield call(anotherAPI)
-  } catch (err) {
-    console.log(err)
-  }
-  finally {
-    if (yield cancelled()) {
-      cancelledAll('another')
-    }
-  }
-}
-
-export function* getTodosOnLocationChangeSaga({ payload: { search } }) {
-  const urlParams = JSON.parse('{"' + decodeURI(search.substring(1)).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"') + '"}')
-  const pagination = {
-    page: Number.parseInt(urlParams.currentPage),
-    pageSize: Number.parseInt(urlParams.pageSize)
-  }
-  yield put(getTodos(pagination))
-}

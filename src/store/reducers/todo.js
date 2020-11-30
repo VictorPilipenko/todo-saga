@@ -1,4 +1,5 @@
 import * as TYPES from '../types'
+import { LOCATION_CHANGE } from 'connected-react-router';
 
 const initialState = {
   loading: false,
@@ -39,15 +40,7 @@ const reducer = (state = initialState, action) => {
           pageSize: action.payload || state.pagination.pageSize
         }
       };
-    case TYPES.SET_TOTAL_PAGES:
-      return {
-        ...state,
-        pagination: {
-          ...state.pagination,
-          totalPages: action.payload || state.pagination.totalPages
-        }
-      };
-    case TYPES.STOP_HANDLE:
+    case LOCATION_CHANGE:
       return {
         ...state,
         loading: false,

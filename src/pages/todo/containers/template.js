@@ -35,12 +35,6 @@ const Template = ({ children, callOnPageVisibility }) => {
     }
   }, [isVisible]) // eslint-disable-line
 
-  // useEffect(() => {
-  //   history.listen((action) => {
-  //     dispatch(getTodosOnLocationChange(action))
-  //   })
-  // }, []) // eslint-disable-line
-
   return <TemplateBlock>{children}</TemplateBlock>
 }
 
