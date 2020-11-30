@@ -21,6 +21,7 @@ const TodoItemBlock = styled.li`
   padding-top: 12px;
   padding-bottom: 12px;
   &:hover {
+    background: #63f7cb2b;
     ${Remove} {
       display: initial;
     }

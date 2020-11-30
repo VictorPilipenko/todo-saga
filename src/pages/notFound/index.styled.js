@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   -webkit-text-fill-color: transparent;
   color: #38d9a9;
   font-size: 140px;
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);

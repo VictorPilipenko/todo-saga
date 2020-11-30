@@ -15,7 +15,7 @@ reduxQuerySync({
   store,
   params: queries,
   initialTruth: 'location',
-  replaceState: true // use getTodosOnLocationChange action if fasle
+  replaceState: true
 })
 
 const pageTitle = "todo - Main Page"
