@@ -2,7 +2,6 @@
 import React from 'react'
 import styled, {css} from "styled-components"
 import { Layout, Switch } from 'antd'
-import { useThemeSwitcher } from 'react-css-theme-switcher';
 
 const { Header } = Layout
 
@@ -35,23 +34,10 @@ const HeadBlock = styled(Header)`
 
 const Head = ({ collapsed }) => {
   const today = new Date().toLocaleDateString();
-  const [isDarkMode, setIsDarkMode] = React.useState();
-  const { switcher, currentTheme, status, themes } = useThemeSwitcher();
-
-  const toggleTheme = (isChecked) => {
-    setIsDarkMode(isChecked);
-    switcher({ theme: isChecked ? themes.dark : themes.light });
-  };
-
-  // Avoid theme change flicker
-  if (status === "loading") {
-    return null;
-  }
 
   return (
     <HeadBlock collapsed={collapsed}>
-      <Switch checked={isDarkMode} onChange={toggleTheme} />
-      <h1>{currentTheme}</h1>
+      <h1>{today}</h1>
     </HeadBlock>
   )
 }
