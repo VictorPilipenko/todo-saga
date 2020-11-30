@@ -1,8 +1,8 @@
 import { createGlobalStyle } from "styled-components";
-import styledNormalize from "styled-normalize";
+import { normalize } from "styled-normalize";
 
 const GlobalStyle = createGlobalStyle`
-  ${styledNormalize};
+  ${normalize};
 
   html {
     font-size: calc( 24px + (22 - 18) * (( 100vw - 320px ) / (1920 - 320)));
@@ -38,16 +38,6 @@ const GlobalStyle = createGlobalStyle`
 
   #nprogress .bar {
     height: 4px;
-  }
-
-  #components-layout-demo-side .logo {
-    height: 32px;
-    margin: 16px;
-    background: rgba(255, 255, 255, 0.3);
-  }
-  
-  .site-layout .site-layout-background {
-    background: #fff;
   }
 `;
 
