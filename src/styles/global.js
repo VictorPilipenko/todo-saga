@@ -14,15 +14,6 @@ const GlobalStyle = createGlobalStyle`
   body {
     min-height: 100%;
     min-height: 100vh;
-    
-  }
-
-  body {
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    background: ${({ theme: { bodyBg } }) => bodyBg};
-    color: ${({ theme: { fontColor } }) => fontColor};
   }
 
   div {

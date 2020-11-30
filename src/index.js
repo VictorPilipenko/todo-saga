@@ -1,26 +1,25 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { ThemeProvider } from "styled-components"
-import { themeSchema } from './styles'
 import { Provider } from "react-redux"
+import { ConfigProvider } from 'antd'
+import ru_RU from 'antd/es/locale/ru_RU'
 import GlobalStyle from './styles/global'
 import store from "./store"
 import App from './routes'
 import CheckOnlineStatusModal from './utils/checkOnlineStatusModal'
 import CheckPageVisibilityStatus from './utils/checkPageVisibilityStatus'
-import AppLayout from './common/layout/app'
-import 'antd/dist/antd.css';
+import 'antd/dist/antd.css'
 
 ReactDOM.render(
-  <Provider store={store}>
-    <ThemeProvider theme={themeSchema}>
-      <AppLayout>
+  <React.StrictMode>
+    <Provider store={store}>
+      <ConfigProvider locale={ru_RU}>
         <CheckOnlineStatusModal />
         <CheckPageVisibilityStatus />
         <GlobalStyle />
         <App />
-      </AppLayout>
-    </ThemeProvider>
-  </Provider>,
+      </ConfigProvider>
+    </Provider>
+  </React.StrictMode>,
   document.getElementById('root')
 )
