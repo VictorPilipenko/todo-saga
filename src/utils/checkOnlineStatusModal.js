@@ -19,7 +19,7 @@ const CheckOnlineStatusModal = () => {
       }
       showModal()
     }
-  }, [isOnline])
+  }, [isOnline])// eslint-disable-line
 
   return renderModal({ message })
 }

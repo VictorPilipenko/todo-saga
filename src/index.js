@@ -8,18 +8,15 @@ import store from "./store"
 import App from './routes'
 import CheckOnlineStatusModal from './utils/checkOnlineStatusModal'
 import CheckPageVisibilityStatus from './utils/checkPageVisibilityStatus'
-import 'antd/dist/antd.css'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <ConfigProvider locale={ru_RU}>
-        <CheckOnlineStatusModal />
-        <CheckPageVisibilityStatus />
-        <GlobalStyle />
-        <App />
-      </ConfigProvider>
-    </Provider>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <ConfigProvider locale={ru_RU}>
+      <CheckOnlineStatusModal />
+      <CheckPageVisibilityStatus />
+      <GlobalStyle />
+      <App />
+    </ConfigProvider>
+  </Provider>,
   document.getElementById('root')
 )
