@@ -6,6 +6,7 @@ import RouteNProgress from '../utils/routeNProgress'
 import NProgress from 'nprogress'
 import config from '../config/nprogress'
 import PublicRoute from '../utils/publicRoute'
+import PrivateRoute from '../utils/privateRoute'
 import { history } from '../store'
 NProgress.configure(config)
 
@@ -25,7 +26,7 @@ const App = () => {
             }} />
           }
           <Switch>
-            <PublicRoute path="/todo" component={ToDo} />
+            <PrivateRoute path="/todo" component={ToDo} />
             <PublicRoute path="/signup" component={SignUp} />
             <Route component={NotFound} />
           </Switch>

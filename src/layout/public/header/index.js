@@ -1,9 +1,8 @@
 
 import React from 'react'
-import styled, { css } from "styled-components"
-import { Alert, Layout } from 'antd'
+import styled from "styled-components"
+import { Layout } from 'antd'
 import ThemeSwitcher from '../../theme'
-
 
 const { Header } = Layout
 
@@ -22,13 +21,7 @@ const HeadBlock = styled(Header)`
   top: 0;
   right: 0;
   z-index: 1000;
-  left: 200px;
-  ${({ collapsed }) =>
-    collapsed &&
-    css`
-        left: 80px;
-      `}
-  transition: all 0.2s;
+  left: 0;
 `
 
 const Head = ({ collapsed }) => {
@@ -38,7 +31,6 @@ const Head = ({ collapsed }) => {
     <HeadBlock collapsed={collapsed}>
       <ThemeSwitcher />
       <h1>{today}</h1>
-      <Alert message="Informational Notes" type="info" showIcon />
     </HeadBlock>
   )
 }

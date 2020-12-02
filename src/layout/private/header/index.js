@@ -1,9 +1,8 @@
 
 import React from 'react'
 import styled, { css } from "styled-components"
-import { Alert, Layout } from 'antd'
+import { Layout } from 'antd'
 import ThemeSwitcher from '../../theme'
-
 
 const { Header } = Layout
 
@@ -38,7 +37,6 @@ const Head = ({ collapsed }) => {
     <HeadBlock collapsed={collapsed}>
       <ThemeSwitcher />
       <h1>{today}</h1>
-      <Alert message="Informational Notes" type="info" showIcon />
     </HeadBlock>
   )
 }

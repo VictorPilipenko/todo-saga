@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled, { css } from "styled-components";
 import { Layout } from 'antd'
-import Sider from './sider'
 import Footer from './footer'
 import Header from './header'
 
@@ -16,24 +15,15 @@ const LayoutBlock = styled(Layout)`
 `;
 const LayoutInner = styled(Layout)`
   transition: all 0.2s;
-  margin-left: 200px;
-  ${({ collapsed }) =>
-    collapsed &&
-      css`
-        margin-left: 80px;
-      `}
 `;
 
 
 const PublicLayout = ({ children }) => {
-  const [collapsed, setCollapsed] = useState(false)
-  const onCollapse = (collapsed) => setCollapsed(collapsed)
 
   return (
     <LayoutBlock>
-      <Sider collapsed={collapsed} onCollapse={onCollapse} />
-      <LayoutInner collapsed={collapsed}>
-        <Header collapsed={collapsed}/>
+      <LayoutInner>
+        <Header />
         <ContentBlock>
           {children}
         </ContentBlock>

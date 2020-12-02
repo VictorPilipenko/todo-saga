@@ -1,7 +1,5 @@
 import axios from "axios";
 import { cacheAdapterEnhancer, Cache } from 'axios-extensions';
-import NProgress from 'nprogress'
-import 'nprogress/nprogress.css'
 import notification from "../common/notification";
 
 export const axiosCache = new Cache({ maxAge: 30 * 1000 });
@@ -20,20 +18,11 @@ const instance = axios.create({
   adapter: cacheAdapterEnhancer(axios.defaults.adapter, cacheConfig)
 });
 
-const calculatePercentage = (loaded, total) => Math.floor(loaded * 1.0) / total
-
-instance.defaults.onDownloadProgress = e => {
-  const percentage = calculatePercentage(e.loaded, e.total)
-  NProgress.set(percentage)
-}
-
 // I keep track of the current requests that are being executed
 export const currentExecutingGetRequests = {};
 
 instance.interceptors.request.use(
   (req) => {
-    NProgress.start()
-
     let originalRequest = req;
     const main = req.url.split('?')[0]
     if (originalRequest.method === 'get') {
@@ -59,7 +48,6 @@ instance.interceptors.request.use(
 
 instance.interceptors.response.use(
   (response) => {
-    NProgress.done()
     if (response.config.method === 'get') {
       if (currentExecutingGetRequests[response.request.responseURL]) {
         // here you clean the request

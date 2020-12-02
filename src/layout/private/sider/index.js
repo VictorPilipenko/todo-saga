@@ -3,7 +3,6 @@ import { Link, useLocation } from 'react-router-dom'
 import { Layout, Menu } from 'antd'
 import {
   HomeOutlined,
-  DashboardOutlined,
   TeamOutlined,
 } from '@ant-design/icons'
 import styled, { css } from "styled-components";
@@ -55,11 +54,6 @@ const App = ({ collapsed, onCollapse }) => {
           <TeamOutlined />
           <span>Users</span>
           <Link to="/users"></Link>
-        </Menu.Item>
-        <Menu.Item key="/signup" title={'thidsadas'}>
-          <DashboardOutlined />
-          <span>signup</span>
-          <Link to="/signup"></Link>
         </Menu.Item>
       </Menu>
     </SiderBlock>
