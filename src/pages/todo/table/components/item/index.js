@@ -1,11 +1,15 @@
 import React from 'react';
-import { Tag, List, Button, Popconfirm, Switch } from 'antd';
+import { Tag, List, Button, Popconfirm, Switch, Alert, Row, Col } from 'antd';
 import { CloseOutlined, CheckOutlined } from '@ant-design/icons';
 import styled from "styled-components";
 
 const TagBox = styled(Tag)`
   white-space: normal !important;
   word-break: break-all;
+`;
+
+const ColBox = styled(Col)`
+  margin: 10px 0px 0px 0px;
 `;
 
 const Item = ({ todo, onTodoRemoval, onTodoToggle }) => {
@@ -17,7 +21,7 @@ const Item = ({ todo, onTodoRemoval, onTodoToggle }) => {
           checkedChildren={<CheckOutlined />}
           unCheckedChildren={<CloseOutlined />}
           onChange={state => onTodoToggle({ todo, state })}
-          defaultChecked={todo.details.done}
+          checked={todo.details.done}
         />,
         <Popconfirm
           title="Are you sure you want to delete?"
@@ -32,9 +36,19 @@ const Item = ({ todo, onTodoRemoval, onTodoToggle }) => {
       ]}
       key={todo.details.id}
     >
-      <TagBox color={todo.details.done ? 'green' : 'red'}>
-        {todo.details.text}
-      </TagBox>
+      <Row>
+        <Col>
+          <TagBox color={todo.details.done ? 'green' : 'red'}>
+            {todo.details.text}
+          </TagBox>
+        </Col>
+        {
+          todo.fetchingError && 
+          <ColBox>
+            <Alert message={todo.fetchingError} type="error" showIcon closable />
+          </ColBox>
+        }
+      </Row>
     </List.Item>
   )
 }
