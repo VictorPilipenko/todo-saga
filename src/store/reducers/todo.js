@@ -44,7 +44,8 @@ const reducer = (state = initialState, action) => {
     case LOCATION_CHANGE:
       return {
         ...state,
-        loading: false,
+        loading: initialState.loading,
+        err: initialState.err,
       };
     case TYPES.GET_TODOS_REQUEST:
     case TYPES.CREATE_TODO_REQUEST:
@@ -70,12 +71,15 @@ const reducer = (state = initialState, action) => {
     case TYPES.CREATE_TODO_SUCCESS:
       return {
         ...state,
-        loading: false
+        loading: initialState.loading,
+        err: initialState.err,
       };
     case TYPES.DELETE_TODO_SUCCESS:
       return {
         ...state,
-        items: state.items.filter(item => item.details.id !== action.payload.id)
+        items: state.items.filter(item => item.details.id !== action.payload.id),
+        loading: initialState.loading,
+        err: initialState.err,
       };
     case TYPES.MARK_TODO_DONE_SUCCESS:
       return {
@@ -93,12 +97,15 @@ const reducer = (state = initialState, action) => {
             };
           }
           return item;
-        })
+        }),
+        loading: initialState.loading,
+        err: initialState.err,
       };
     case TYPES.GET_TODOS_SUCCESS:
       return {
         ...state,
-        loading: false,
+        loading: initialState.loading,
+        err: initialState.err,
         items: action.payload.items,
         pagination: action.payload.pagination
       };
@@ -106,7 +113,7 @@ const reducer = (state = initialState, action) => {
     case TYPES.CREATE_TODO_FAILURE:
       return {
         ...state,
-        loading: false,
+        loading: initialState.loading,
         err: action.payload.message
       };
     case TYPES.DELETE_TODO_FAILURE:
@@ -122,7 +129,9 @@ const reducer = (state = initialState, action) => {
             };
           }
           return item;
-        })
+        }),
+        loading: initialState.loading,
+        err: initialState.err,
       };
     default:
       return state;
