@@ -46,6 +46,7 @@ const TodosContainer = () => {
       </Card>
       <Card title="Todo List">
         <TodoList
+          err={err}
           loading={loading}
           todos={items}
           onTodoRemoval={handleRemoveTodo}

@@ -1,22 +1,24 @@
 import React from 'react';
-import { Tooltip, Tag, List, Button, Popconfirm, Switch } from 'antd';
+import { Tag, List, Button, Popconfirm, Switch } from 'antd';
 import { CloseOutlined, CheckOutlined } from '@ant-design/icons';
+import styled from "styled-components";
+
+const TagBox = styled(Tag)`
+  white-space: normal !important;
+  word-break: break-all;
+`;
 
 const Item = ({ todo, onTodoRemoval, onTodoToggle }) => {
   return (
     <List.Item
       actions={[
-        <Tooltip
-          title={todo.details.done ? 'Mark as uncompleted' : 'Mark as completed'}
-        >
-          <Switch
-            loading={todo.areFetching}
-            checkedChildren={<CheckOutlined />}
-            unCheckedChildren={<CloseOutlined />}
-            onChange={state => onTodoToggle({ todo, state })}
-            defaultChecked={todo.details.done}
-          />
-        </Tooltip>,
+        <Switch
+          loading={todo.areFetching}
+          checkedChildren={<CheckOutlined />}
+          unCheckedChildren={<CloseOutlined />}
+          onChange={state => onTodoToggle({ todo, state })}
+          defaultChecked={todo.details.done}
+        />,
         <Popconfirm
           title="Are you sure you want to delete?"
           onConfirm={() => {
@@ -30,9 +32,9 @@ const Item = ({ todo, onTodoRemoval, onTodoToggle }) => {
       ]}
       key={todo.details.id}
     >
-      <Tag color={todo.details.done ? 'green' : 'red'}>
+      <TagBox color={todo.details.done ? 'green' : 'red'}>
         {todo.details.text}
-      </Tag>
+      </TagBox>
     </List.Item>
   )
 }

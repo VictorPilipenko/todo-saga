@@ -6,11 +6,9 @@ import { axiosCache } from "../../../config/axios";
 import { useIsFirstMount } from "../../../hooks/useIsFirstMount";
 
 const TemplateBlock = styled.div`
-  width: 512px;
-  height: 768px;
+  max-width: 512px;
   position: relative;
   margin: 0 auto;
-  margin-bottom: 50px;
 `;
 
 const Template = ({ children, callOnPageVisibility }) => {
