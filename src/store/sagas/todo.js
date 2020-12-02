@@ -69,7 +69,7 @@ export function* getTodosSaga(action) {
     const currentPage = Number.parseInt(action.payload.page)
     const pageSize = Number.parseInt(action.payload.pageSize)
     const totalPages = Math.ceil(response.headers['x-total-count'] / pageSize)
-    const totalCount = response.headers['x-total-count']
+    const totalCount =  Number.parseInt(response.headers['x-total-count'])
  
     const pagination = {
       currentPage,
@@ -84,7 +84,7 @@ export function* getTodosSaga(action) {
           details: {
             ...item
           },
-          fetchingError: null,
+          fetchingError: '',
           areFetching: false
         })),
       pagination

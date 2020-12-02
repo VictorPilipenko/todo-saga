@@ -62,7 +62,7 @@ const reducer = (state = initialState, action) => {
             return {
               ...item,
               areFetching: true,
-              fetchingError: null
+              fetchingError: ''
             };
           }
           return item;
@@ -93,7 +93,7 @@ const reducer = (state = initialState, action) => {
                 done: action.payload.done,
               },
               areFetching: false,
-              fetchingError: null
+              fetchingError: ''
             };
           }
           return item;
