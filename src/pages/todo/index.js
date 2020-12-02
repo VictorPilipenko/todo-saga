@@ -11,6 +11,7 @@ import { getTodos } from "../../store/actions/todo";
 import reduxQuerySync from 'redux-query-sync';
 import queries from "../../store/queries/todo";
 import store from "../../store"
+import TodosContainer from "./table";
 reduxQuerySync({
   store,
   params: queries,
@@ -41,10 +42,13 @@ const App = () => {
         <meta name="twitter:description" content={pageDescription} />
       </Helmet>
       <Template callOnPageVisibility={getTodosAPI}>
+        <TodosContainer />
+      </Template>
+      {/* <Template callOnPageVisibility={getTodosAPI}>
         <TodoHead />
         <TodoList />
         <TodoCreate />
-      </Template>
+      </Template> */}
     </>
   );
 }

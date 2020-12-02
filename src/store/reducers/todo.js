@@ -16,8 +16,9 @@ const initialState = {
   ],
   pagination: {
     currentPage: 1,
-    pageSize: 2,
+    pageSize: 5,
     totalPages: 1,
+    totalCount: 1,
   },
   err: ""
 };
@@ -85,7 +86,7 @@ const reducer = (state = initialState, action) => {
               ...item,
               details: {
                 ...item.details,
-                done: true,
+                done: action.payload.done,
               },
               areFetching: false,
               fetchingError: null

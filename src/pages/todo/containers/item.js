@@ -1,10 +1,10 @@
-import React, { useCallback } from "react";
-import { useDispatch } from "react-redux";
-import { markTodoDone, deleteTodo } from "../../../store/actions/todo";
-import TodoItem from "../components/item";
+import React, { useCallback } from "react"
+import { useDispatch } from "react-redux"
+import { markTodoDone, deleteTodo } from "../../../store/actions/todo"
+import TodoItem from "../components/item"
 
 export default React.memo(props => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   const deleteTodoById = id => {
     const data = {
@@ -18,8 +18,8 @@ export default React.memo(props => {
       const data = {
         id,
         done: true
-      };
-      dispatch(markTodoDone(data));
+      }
+      dispatch(markTodoDone(data))
     },
     [dispatch]
   )
@@ -32,5 +32,5 @@ export default React.memo(props => {
         {...props}
       />
     </>
-  );
-});
+  )
+})
