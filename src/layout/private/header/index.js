@@ -2,7 +2,7 @@
 import React from 'react'
 import styled, { css } from "styled-components"
 import { Alert, Layout } from 'antd'
-import ThemeSwitcher from '../theme'
+import ThemeSwitcher from '../../theme'
 
 
 const { Header } = Layout

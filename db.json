@@ -1,18 +1,8 @@
 {
   "todos": [
     {
-      "text": "sdfgdfsg",
-      "done": false,
-      "id": 3
-    },
-    {
-      "text": "dsfglklv;b'fgh",
-      "done": true,
-      "id": 5
-    },
-    {
       "text": "fgjfjhhfgjh",
-      "done": false,
+      "done": true,
       "id": 6
     },
     {

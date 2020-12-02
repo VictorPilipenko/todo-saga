@@ -1,15 +1,15 @@
 import React from 'react'
 import { Route } from 'react-router-dom';
-import PublicLayout from '../layout/public';
+import PrivateLayout from '../layout/private';
 
 const PublicRoute = ({ component: Component, ...rest }) => {
   return (
     <Route
       {...rest}
       render={routeProps => (
-        <PublicLayout>
+        <PrivateLayout>
           <Component {...routeProps} />
-        </PublicLayout>
+        </PrivateLayout>
       )}
     />
   )

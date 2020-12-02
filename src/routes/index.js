@@ -6,7 +6,6 @@ import RouteNProgress from '../utils/routeNProgress'
 import NProgress from 'nprogress'
 import config from '../config/nprogress'
 import PublicRoute from '../utils/publicRoute'
-import Layout from '../layout'
 import { history } from '../store'
 NProgress.configure(config)
 
@@ -18,21 +17,19 @@ const App = () => {
   return (
     <>
       <ConnectedRouter history={history} >
-        <Layout>
-          <Suspense fallback={<RouteNProgress />}>
-            {
-              window.location.pathname === '/' &&
-              <Redirect to={{
-                pathname: '/todo'
-              }} />
-            }
-            <Switch>
-              <PublicRoute path="/todo" component={ToDo} />
-              <PublicRoute path="/signup" component={SignUp} />
-              <Route component={NotFound} />
-            </Switch>
-          </Suspense>
-        </Layout>
+        <Suspense fallback={<RouteNProgress />}>
+          {
+            window.location.pathname === '/' &&
+            <Redirect to={{
+              pathname: '/todo'
+            }} />
+          }
+          <Switch>
+            <PublicRoute path="/todo" component={ToDo} />
+            <PublicRoute path="/signup" component={SignUp} />
+            <Route component={NotFound} />
+          </Switch>
+        </Suspense>
       </ConnectedRouter>
     </>
   )

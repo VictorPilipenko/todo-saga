@@ -25,7 +25,7 @@ const LayoutInner = styled(Layout)`
 `;
 
 
-const AppLayout = ({ children }) => {
+const PublicLayout = ({ children }) => {
   const [collapsed, setCollapsed] = useState(false)
   const onCollapse = (collapsed) => setCollapsed(collapsed)
 
@@ -43,4 +43,4 @@ const AppLayout = ({ children }) => {
   )
 }
 
-export default AppLayout
+export default PublicLayout
