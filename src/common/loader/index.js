@@ -10,8 +10,6 @@ const rotate = keyframes`
 `;
 
 export const Loader = styled.div`
-  position: absolute;
-  transform: translate(-50%,-50%);
   border: 5px solid #38d9a94f;
   border-top: 5px solid #38d9a9bf;
   border-radius: 50%;
@@ -21,7 +19,12 @@ export const Loader = styled.div`
   ${props =>
     props.global &&
     css`
-      top: 25%;
+      position: absolute;
+      height: 100px;
+      width: 100px;
+      top: 50%;
       left: 50%;
+      margin-left: -50px;
+      margin-top: -50px;
     `}
 `;
