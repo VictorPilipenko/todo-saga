@@ -4,6 +4,7 @@ import { Layout } from 'antd'
 import Sider from './sider'
 import Footer from './footer'
 import Header from './header'
+import { Default, Mobile } from '../../common/responsive';
 
 const { Content } = Layout
 
@@ -16,12 +17,9 @@ const LayoutBlock = styled(Layout)`
 `;
 const LayoutInner = styled(Layout)`
   transition: all 0.2s;
-  margin-left: 200px;
-  ${({ collapsed }) =>
-    collapsed &&
-      css`
-        margin-left: 80px;
-      `}
+  margin-left: 0px;
+  ${({ collapsed }) => collapsed === true && css`margin-left: 80px;`}
+  ${({ collapsed }) => collapsed === false && css`margin-left: 200px;`}
 `;
 
 
@@ -31,14 +29,28 @@ const PrivateLayout = ({ children }) => {
 
   return (
     <LayoutBlock>
-      <Sider collapsed={collapsed} onCollapse={onCollapse} />
-      <LayoutInner collapsed={collapsed}>
-        <Header collapsed={collapsed}/>
-        <ContentBlock>
-          {children}
-        </ContentBlock>
-        <Footer />
-      </LayoutInner>
+
+      <Default>
+        <Sider collapsed={collapsed} onCollapse={onCollapse} />
+        <LayoutInner collapsed={collapsed}>
+          <Header collapsed={collapsed} />
+          <ContentBlock>
+            {children}
+          </ContentBlock>
+          <Footer />
+        </LayoutInner>
+      </Default>
+      
+      <Mobile>
+        <LayoutInner>
+          <Header />
+          <ContentBlock>
+            {children}
+          </ContentBlock>
+          <Footer />
+        </LayoutInner>
+      </Mobile>
+
     </LayoutBlock>
   )
 }

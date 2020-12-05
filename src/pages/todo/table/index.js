@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { markTodoDone, deleteTodo, createTodo } from '../../../store/actions/todo'
 import AddTodoForm from './components/add'
 import TodoList from './components/list'
+import { Default } from '../../../common/responsive'
 
 const TodosContainer = () => {
   const { items, loading, err, pagination } = useSelector(state => state.todos)
@@ -35,12 +36,14 @@ const TodosContainer = () => {
 
   return (
     <>
-      <Row>
-        <PageHeader
-          title="Add Todo"
-          subTitle="To add a todo, just fill the form below and click in add todo."
-        />
-      </Row>
+      <Default>
+        <Row>
+          <PageHeader
+            title="Add Todo"
+            subTitle="To add a todo, just fill the form below and click in add todo."
+          />
+        </Row>
+      </Default>
       <Card title="Create a new todo">
         <AddTodoForm onFormSubmit={handleFormSubmit} loading={loading} pagination={pagination} />
       </Card>

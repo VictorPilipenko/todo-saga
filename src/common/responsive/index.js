@@ -1,18 +1,32 @@
-import React from 'react';
-import Responsive from 'react-responsive';
- 
-const XXL = props => <Responsive {...props} minWidth={1601} />;
-const XL = props => <Responsive {...props} minWidth={1200} maxWidth={1600} />;
-const Desktop = props => <Responsive {...props} minWidth={992} />;
-const Tablet = props => <Responsive {...props} minWidth={768} maxWidth={991} />;
-const Mobile = props => <Responsive {...props} maxWidth={575} />;
-const Default = props => <Responsive {...props} minWidth={576} />;
+import React from 'react'
+import { useMediaQuery } from 'react-responsive'
 
-export {
-  XXL,
-  XL,
-  Desktop,
-  Tablet,
-  Mobile,
-  Default
-};
+export const Desktop = ({ children }) => {
+  const isDesktop = useMediaQuery({ minWidth: 992 })
+  return isDesktop ? children : null
+}
+
+export const Tablet = ({ children }) => {
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 991 })
+  return isTablet ? children : null
+}
+
+export const Mobile = ({ children }) => {
+  const isMobile = useMediaQuery({ maxWidth: 767 })
+  return isMobile ? children : null
+}
+
+export const Default = ({ children }) => {
+  const isNotMobile = useMediaQuery({ minWidth: 768 })
+  return isNotMobile ? children : null
+}
+
+
+// const Example = () => (
+//   <>
+//     <Desktop>Desktop or laptop</Desktop>
+//     <Tablet>Tablet</Tablet>
+//     <Mobile>Mobile</Mobile>
+//     <Default>Not mobile (desktop or laptop or tablet)</Default>
+//   </>
+// )
