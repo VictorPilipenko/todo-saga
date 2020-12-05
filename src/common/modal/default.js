@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import ModalWindowPortal from './portal'
+import { Modal } from 'antd';
 
 export const useModal = () => {
   const [isVisible, setIsVisible] = useState(false)
@@ -8,10 +8,13 @@ export const useModal = () => {
   const renderModal = ({
     message
   }) => (
-      isVisible &&
-      <ModalWindowPortal hideModal={hideModal}>
-        <h3 className="portal-modal-header">{message}</h3>
-      </ModalWindowPortal>
+      <Modal
+        footer={null}
+        visible={isVisible}
+        onCancel={hideModal}
+      >
+        <h3>{message}</h3>
+      </Modal>
     )
 
   return {
