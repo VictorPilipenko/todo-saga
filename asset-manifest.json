@@ -2,17 +2,17 @@
   "files": {
     "static/js/0.2db6086c.chunk.js": "/todo-saga/static/js/0.2db6086c.chunk.js",
     "static/js/0.2db6086c.chunk.js.map": "/todo-saga/static/js/0.2db6086c.chunk.js.map",
-    "static/css/1.c24b496d.chunk.css": "/todo-saga/static/css/1.c24b496d.chunk.css",
+    "static/css/1.18344b4a.chunk.css": "/todo-saga/static/css/1.18344b4a.chunk.css",
     "static/js/1.84368d6b.chunk.js": "/todo-saga/static/js/1.84368d6b.chunk.js",
     "static/js/1.84368d6b.chunk.js.map": "/todo-saga/static/js/1.84368d6b.chunk.js.map",
-    "main.js": "/todo-saga/static/js/main.cb87322f.chunk.js",
-    "main.js.map": "/todo-saga/static/js/main.cb87322f.chunk.js.map",
-    "runtime-main.js": "/todo-saga/static/js/runtime-main.d4787875.js",
-    "runtime-main.js.map": "/todo-saga/static/js/runtime-main.d4787875.js.map",
-    "static/css/4.b660b424.chunk.css": "/todo-saga/static/css/4.b660b424.chunk.css",
+    "main.js": "/todo-saga/static/js/main.daf515bd.chunk.js",
+    "main.js.map": "/todo-saga/static/js/main.daf515bd.chunk.js.map",
+    "runtime-main.js": "/todo-saga/static/js/runtime-main.aaa784ab.js",
+    "runtime-main.js.map": "/todo-saga/static/js/runtime-main.aaa784ab.js.map",
+    "static/css/4.1601da63.chunk.css": "/todo-saga/static/css/4.1601da63.chunk.css",
     "static/js/4.5f4eb5f1.chunk.js": "/todo-saga/static/js/4.5f4eb5f1.chunk.js",
     "static/js/4.5f4eb5f1.chunk.js.map": "/todo-saga/static/js/4.5f4eb5f1.chunk.js.map",
-    "static/css/5.972bb4fc.chunk.css": "/todo-saga/static/css/5.972bb4fc.chunk.css",
+    "static/css/5.67f88eab.chunk.css": "/todo-saga/static/css/5.67f88eab.chunk.css",
     "static/js/5.87d9f245.chunk.js": "/todo-saga/static/js/5.87d9f245.chunk.js",
     "static/js/5.87d9f245.chunk.js.map": "/todo-saga/static/js/5.87d9f245.chunk.js.map",
     "static/css/6.75c1bfb5.chunk.css": "/todo-saga/static/css/6.75c1bfb5.chunk.css",
@@ -24,17 +24,17 @@
     "static/js/8.91dcc5d9.chunk.js.map": "/todo-saga/static/js/8.91dcc5d9.chunk.js.map",
     "color.less": "/todo-saga/color.less",
     "index.html": "/todo-saga/index.html",
-    "static/css/1.c24b496d.chunk.css.map": "/todo-saga/static/css/1.c24b496d.chunk.css.map",
-    "static/css/4.b660b424.chunk.css.map": "/todo-saga/static/css/4.b660b424.chunk.css.map",
-    "static/css/5.972bb4fc.chunk.css.map": "/todo-saga/static/css/5.972bb4fc.chunk.css.map",
+    "static/css/1.18344b4a.chunk.css.map": "/todo-saga/static/css/1.18344b4a.chunk.css.map",
+    "static/css/4.1601da63.chunk.css.map": "/todo-saga/static/css/4.1601da63.chunk.css.map",
+    "static/css/5.67f88eab.chunk.css.map": "/todo-saga/static/css/5.67f88eab.chunk.css.map",
     "static/css/6.75c1bfb5.chunk.css.map": "/todo-saga/static/css/6.75c1bfb5.chunk.css.map",
     "static/js/4.5f4eb5f1.chunk.js.LICENSE.txt": "/todo-saga/static/js/4.5f4eb5f1.chunk.js.LICENSE.txt",
     "static/js/5.87d9f245.chunk.js.LICENSE.txt": "/todo-saga/static/js/5.87d9f245.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.d4787875.js",
-    "static/css/4.b660b424.chunk.css",
+    "static/js/runtime-main.aaa784ab.js",
+    "static/css/4.1601da63.chunk.css",
     "static/js/4.5f4eb5f1.chunk.js",
-    "static/js/main.cb87322f.chunk.js"
+    "static/js/main.daf515bd.chunk.js"
   ]
 }
