@@ -11,7 +11,7 @@ const cacheConfig = {
 }
 
 const instance = axios.create({
-  baseURL: 'http://localhost:4000/',
+  baseURL: 'https://my-json-server.typicode.com/VictorPilipenko/todo-saga',
   headers: {
     'Cache-Control': 'no-cache'
   },
