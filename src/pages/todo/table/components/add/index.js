@@ -1,10 +1,15 @@
 import React, { useEffect } from 'react';
+import styled from "styled-components";
 import { useDispatch } from 'react-redux';
 import { Form, Row, Col, Button, Input } from 'antd';
 import { PlusCircleFilled } from '@ant-design/icons';
 import { getTodos } from '../../../../../store/actions/todo';
 import Pagination from '../../../../../common/pagination';
+import { Default } from '../../../../../common/responsive';
 
+const RowBox = styled(Row)`
+  margin-bottom: 10px; 
+`;
 const AddForm = ({ onFormSubmit, loading, pagination }) => {
   const [form] = Form.useForm()
 
@@ -38,7 +43,7 @@ const AddForm = ({ onFormSubmit, loading, pagination }) => {
       layout="horizontal"
     >
       <Row justify='space-between'>
-        <Row gutter={15} >
+        <RowBox gutter={15} wrap={false} >
           <Col>
             <Form.Item
               name={'name'}
@@ -53,10 +58,10 @@ const AddForm = ({ onFormSubmit, loading, pagination }) => {
           <Col>
             <Button type="primary" htmlType="submit" block disabled={loading}>
               <PlusCircleFilled />
-            Add todo
-          </Button>
+              <Default> Add todo</Default>
+            </Button>
           </Col>
-        </Row>
+        </RowBox>
 
         <Col>
           <Pagination
