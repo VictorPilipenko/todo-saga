@@ -1,6 +1,5 @@
 import { put, call, cancelled, select } from "redux-saga/effects";
-import NProgress from 'nprogress'
-import { anotherAPI, getAPI } from "../../api/todo";
+import { getAPI } from "../../api/todo";
 import notification from "../../common/notification";
 import { currentExecutingGetRequests } from "../../config/axios";
 import combinedActions, { getTodosSuccess, getTodosFailure, getTodos } from "../actions/todo";
@@ -13,7 +12,6 @@ const cancelledAll = api => {
       const source = currentExecutingGetRequests[el]
       delete currentExecutingGetRequests[el]
       source.cancel()
-      NProgress.done()
     }
   })
 }

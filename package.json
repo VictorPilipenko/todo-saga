@@ -10,6 +10,8 @@
     "cogo-toast": "^4.2.3",
     "connected-react-router": "^6.8.0",
     "nprogress": "^0.2.0",
+    "overlayscrollbars": "^1.13.0",
+    "overlayscrollbars-react": "^0.2.2",
     "react": "^17.0.1",
     "react-content-loader": "^5.1.4",
     "react-dom": "^17.0.1",

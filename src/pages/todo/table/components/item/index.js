@@ -24,6 +24,7 @@ const Item = ({ todo, onTodoRemoval, onTodoToggle }) => {
           checked={todo.details.done}
         />,
         <Popconfirm
+          disabled={todo.areFetching}
           title="Are you sure you want to delete?"
           onConfirm={() => {
             onTodoRemoval(todo)
