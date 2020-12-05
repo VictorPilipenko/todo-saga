@@ -27,3 +27,9 @@ export const useOnClickOutside = (ref, handler) => {
     // ... passing it into this hook.
     [ref, handler])
 }
+
+
+  // // Create a ref that we add to the element for which we want to detect outside clicks
+  // const ref = useRef()
+  // // Call hook passing in the ref and a function to call on outside click
+  // useOnClickOutside(ref, hideModal)

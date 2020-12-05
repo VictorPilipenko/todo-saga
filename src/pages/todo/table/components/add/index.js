@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { Form, Row, Col, Button, Input, Pagination } from 'antd';
+import { Form, Row, Col, Button, Input } from 'antd';
 import { PlusCircleFilled } from '@ant-design/icons';
 import { getTodos } from '../../../../../store/actions/todo';
+import Pagination from '../../../../../common/pagination';
 
 const AddForm = ({ onFormSubmit, loading, pagination }) => {
   const [form] = Form.useForm()

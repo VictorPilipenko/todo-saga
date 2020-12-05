@@ -11,13 +11,8 @@
       "id": 10
     },
     {
-      "text": "nvbnvbn",
-      "done": false,
-      "id": 15
-    },
-    {
       "text": "cgh",
-      "done": false,
+      "done": true,
       "id": 21
     },
     {
@@ -27,12 +22,12 @@
     },
     {
       "text": "dfgkldfg",
-      "done": false,
+      "done": true,
       "id": 23
     },
     {
       "text": "lkfd;bcv",
-      "done": true,
+      "done": false,
       "id": 24
     },
     {
