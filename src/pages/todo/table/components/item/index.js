@@ -12,6 +12,10 @@ const ColBox = styled(Col)`
   margin: 10px 0px 0px 0px;
 `;
 
+const RowBox = styled(Row)`
+  flex-direction: column !important; 
+`;
+
 const Item = ({ todo, onTodoRemoval, onTodoToggle }) => {
   return (
     <List.Item
@@ -37,7 +41,7 @@ const Item = ({ todo, onTodoRemoval, onTodoToggle }) => {
       ]}
       key={todo.details.id}
     >
-      <Row>
+      <RowBox>
         <Col>
           <TagBox color={todo.details.done ? 'green' : 'red'}>
             {todo.details.text}
@@ -49,7 +53,7 @@ const Item = ({ todo, onTodoRemoval, onTodoToggle }) => {
             <Alert message={todo.fetchingError} type="error" showIcon closable />
           </ColBox>
         }
-      </Row>
+      </RowBox>
     </List.Item>
   )
 }
