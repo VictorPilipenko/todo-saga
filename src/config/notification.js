@@ -1,5 +1,7 @@
 const config = {
-  position: "bottom-right"
+  placement: 'bottomRight',
+  bottom: 25,
+  duration: 1,
 }
 
 export default config

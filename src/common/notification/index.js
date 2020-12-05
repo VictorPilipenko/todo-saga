@@ -1,39 +1,32 @@
 
-import cogoToast from "cogo-toast";
-import config from "../../config/notification";
+import { notification as notifi } from 'antd'
+import config from "../../config/notification"
 
 const notification = {
   error: message => {
-    const { hide } = cogoToast.error(
-      message || "error",
-      {
-        ...config,
-        onClick: () => hide()
-      }
-    );
+    notifi.error({
+      message: message || "error",
+      ...config,
+    })
   },
   success: message => {
-    const { hide } = cogoToast.success(
-      message || "success",
-      {
-        ...config,
-        onClick: () => hide()
-      }
-    );
+    notifi.success({
+      message: message || "success",
+      ...config,
+    })
   },
   warning: message => {
-    const { hide } = cogoToast.warn(message || "warning", {
+    notifi.warning({
+      message: message || "warning",
       ...config,
-      onClick: () => hide()
-    });
+    })
   },
   info: message => {
-    const { hide } = cogoToast.info(message || "info", {
+    notifi.info({
+      message: message || "info",
       ...config,
-      onClick: () => hide()
-    });
-  },
-  loading: message => cogoToast.loading(message || "loading...")
-};
+    })
+  }
+}
 
 export default notification
