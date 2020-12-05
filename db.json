@@ -2,12 +2,12 @@
   "todos": [
     {
       "text": "kjl;",
-      "done": true,
+      "done": false,
       "id": 9
     },
     {
       "text": "dfdgdfg",
-      "done": true,
+      "done": false,
       "id": 10
     },
     {
