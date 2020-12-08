@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
-import { Drawer } from 'antd';
+import { Drawer } from 'antd'
 
 export const useDrawer = () => {
   const [isVisible, setIsVisible] = useState(false)
   const showDrawer = () => setIsVisible(true)
   const hideDrawer = () => setIsVisible(false)
   const renderDrawer = ({
-    render, ...props
+    render, 
+    ...props
   }) => (
       <Drawer
         placement={'left'}

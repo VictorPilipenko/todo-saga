@@ -1,7 +1,7 @@
 
-import React from "react";
-import { Helmet } from "react-helmet";
-import SignUp from './components/signup'
+import React from "react"
+import { Helmet } from "react-helmet"
+import SignUp from './components'
 
 const pageTitle = "todo - Main Page"
 const pageDescription = "We love learning - every day, in every form."
@@ -18,6 +18,6 @@ const SignUpPage = () => {
       </Helmet>
       <SignUp />
     </>
-  );
+  )
 }
-export default SignUpPage;
+export default SignUpPage

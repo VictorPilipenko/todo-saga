@@ -8,7 +8,7 @@ const ScrollContainer = ({ children }) => {
   return (
     <OverlayScrollbarsComponent
       className={`os-theme-${name === 'light' ? 'dark' : 'light'}`}
-      // options={{ scrollbars: { autoHide: "scroll" } }}
+      options={{ scrollbars: { autoHide: "scroll" } }}
     >
       {children}
     </OverlayScrollbarsComponent>

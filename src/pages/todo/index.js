@@ -2,16 +2,12 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { useSelector } from "react-redux";
-import Template from "./containers/template";
-import TodoHead from "./containers/head";
-import TodoList from "./containers/list";
-import TodoCreate from "./containers/create";
-import { getTodos } from "../../store/actions/todo";
-
 import reduxQuerySync from 'redux-query-sync';
+import Template from "./containers/template";
+import { getTodos } from "../../store/actions/todo";
 import queries from "../../store/queries/todo";
 import store from "../../store"
-import TodosContainer from "./table";
+import TodosContainer from "./containers";
 reduxQuerySync({
   store,
   params: queries,
@@ -44,11 +40,6 @@ const App = () => {
       <Template callOnPageVisibility={getTodosAPI}>
         <TodosContainer />
       </Template>
-      {/* <Template callOnPageVisibility={getTodosAPI}>
-        <TodoHead />
-        <TodoList />
-        <TodoCreate />
-      </Template> */}
     </>
   );
 }

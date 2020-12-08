@@ -6,14 +6,17 @@ export const useModal = () => {
   const showModal = () => setIsVisible(true)
   const hideModal = () => setIsVisible(false)
   const renderModal = ({
-    message
+    render,
+    ...props
   }) => (
       <Modal
-        footer={null}
+        destroyOnClose={true}
+        focusTriggerAfterClose={false}
         visible={isVisible}
         onCancel={hideModal}
+        {...props}
       >
-        <h3>{message}</h3>
+        {typeof render === "function" ? render() : <>Empty Modal</>}
       </Modal>
     )
 

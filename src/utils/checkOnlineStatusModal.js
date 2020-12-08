@@ -21,7 +21,12 @@ const CheckOnlineStatusModal = () => {
     }
   }, [isOnline])// eslint-disable-line
 
-  return renderModal({ message })
+  return renderModal({
+    footer: null,
+    render: () => (
+      <h3>{message}</h3>
+    )
+  })
 }
 
 export default CheckOnlineStatusModal

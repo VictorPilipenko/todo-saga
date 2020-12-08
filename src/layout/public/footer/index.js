@@ -1,13 +1,6 @@
 
 import React from 'react'
-import styled from "styled-components";
-import { Layout } from 'antd'
-
-const { Footer } = Layout
-
-const FooterBlock = styled(Footer)`
-  text-align: center;
-`;
+import { FooterBlock } from './index.styled'
 
 const FooterApp = () => {
   return (
