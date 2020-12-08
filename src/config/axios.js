@@ -1,8 +1,8 @@
-import axios from "axios";
-import { cacheAdapterEnhancer, Cache } from 'axios-extensions';
-import notification from "../common/notification";
+import axios from "axios"
+import { cacheAdapterEnhancer, Cache } from 'axios-extensions'
+import notification from "../common/notification"
 
-export const axiosCache = new Cache({ maxAge: 30 * 1000 });
+export const axiosCache = new Cache({ maxAge: 5 * 1000 })
 
 const cacheConfig = {
   enabledByDefault: false,
@@ -11,15 +11,15 @@ const cacheConfig = {
 }
 
 const instance = axios.create({
-  baseURL: 'http://localhost:4000/',
+  baseURL: process.env.REACT_APP_API,
   headers: {
     'Cache-Control': 'no-cache'
   },
   adapter: cacheAdapterEnhancer(axios.defaults.adapter, cacheConfig)
-});
+})
 
 // I keep track of the current requests that are being executed
-export const currentExecutingGetRequests = {};
+export const currentExecutingGetRequests = {}
 
 instance.interceptors.request.use(
   (req) => {
@@ -44,7 +44,7 @@ instance.interceptors.request.use(
   (err) => {
     return Promise.reject(err);
   }
-);
+)
 
 instance.interceptors.response.use(
   (response) => {
@@ -109,6 +109,6 @@ instance.interceptors.response.use(
     }
     return Promise.reject(error);
   }
-);
+)
 
-export default instance;
+export default instance
