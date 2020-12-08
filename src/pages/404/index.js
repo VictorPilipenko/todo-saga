@@ -1,8 +1,7 @@
 import React from 'react';
 import { Helmet } from "react-helmet"
 import { useHistory } from 'react-router-dom'
-import { Button } from 'antd'
-import { Wrapper } from "./index.styled"
+import { GoHome, Wrapper } from "./index.styled"
 
 const pageTitle = "todo - Page Not Found"
 const pageDescription = "We love learning - every day, in every form."
@@ -18,12 +17,13 @@ const NotFound = () => {
       <meta name="twitter:description" content={pageDescription} />
     </Helmet>
     <Wrapper>404!</Wrapper>
-    <Button
-      type="primary"
+    <GoHome
+      size='large'
+      type='primary'
       onClick={() => {
         history.push('/todo')
       }}
-    >Go Home</Button>
+    >Go Home</GoHome>
   </>
 }
 
