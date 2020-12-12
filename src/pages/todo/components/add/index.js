@@ -6,10 +6,11 @@ import { getTodos } from '../../../../store/actions/todo';
 import Pagination from '../../../../common/pagination';
 import { Default } from '../../../../common/responsive';
 import { RowBox } from './index.styled';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 
 const AddForm = ({ onFormSubmit, loading, pagination }) => {
+  const intl = useIntl()
   const [form] = Form.useForm()
 
   const dispatch = useDispatch()
@@ -51,9 +52,7 @@ const AddForm = ({ onFormSubmit, loading, pagination }) => {
                 message: 'This field is required'
               }]}
             >
-              <FormattedMessage id="todo.input.placeholder">
-                {placeholder => <Input placeholder={placeholder} />}
-              </FormattedMessage>
+              <Input placeholder={intl.formatMessage({ id: 'todo.input.placeholder' })} />
             </Form.Item>
           </Col>
           <Col>
