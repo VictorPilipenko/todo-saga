@@ -7,13 +7,15 @@ import { combineReducers } from "redux";
 import { all } from "redux-saga/effects";
 import theme from "../store/reducers/theme";
 import todos from "../store/reducers/todo";
+import locale from "../store/reducers/locale";
 import todosSaga from '../store/watchers/todo'
+import themesSaga from "./watchers/theme";
+import localesSaga from "./watchers/locale";
 
 import { createBrowserHistory } from "history"
-import themesSaga from "./watchers/theme";
 export const history = createBrowserHistory()
 
-const sagaMiddleware = createSagaMiddleware();
+const sagaMiddleware = createSagaMiddleware()
 const middlewares = [
   sagaMiddleware,
   routerMiddleware(history)
@@ -21,28 +23,30 @@ const middlewares = [
 const enhancer =
   process.env.NODE_ENV === 'production'
     ? compose(applyMiddleware(...middlewares))
-    : composeWithDevTools(applyMiddleware(...middlewares));
+    : composeWithDevTools(applyMiddleware(...middlewares))
 const reducer = combineReducers({
+  locale,
   theme,
   todos,
   router: connectRouter(history),
 })
 function* rootSaga() {
   yield all([
+    localesSaga(),
     themesSaga(),
-    todosSaga()
+    todosSaga(),
   ])
 }
-const store = createStore(reducer, enhancer);
-sagaMiddleware.run(rootSaga);
+const store = createStore(reducer, enhancer)
+sagaMiddleware.run(rootSaga)
 
 // disable react-dev-tools for production
 if (process.env.NODE_ENV === 'production') {
   if (typeof window.__REACT_DEVTOOLS_GLOBAL_HOOK__ === "object") {
     for (let [key, value] of Object.entries(window.__REACT_DEVTOOLS_GLOBAL_HOOK__)) {
-      window.__REACT_DEVTOOLS_GLOBAL_HOOK__[key] = typeof value == "function" ? () => { } : null;
+      window.__REACT_DEVTOOLS_GLOBAL_HOOK__[key] = typeof value == "function" ? () => { } : null
     }
   }
 }
 
-export default store;
+export default store

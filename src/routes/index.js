@@ -1,4 +1,3 @@
-
 import React, { Suspense, lazy } from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import { ConnectedRouter } from 'connected-react-router'
@@ -14,9 +13,9 @@ const ToDo = lazy(() => import('../pages/todo'))
 const SignUp = lazy(() => import('../pages/signup'))
 const NotFound = lazy(() => import('../pages/404'))
 
-const App = () => {
+const Routes = () => {
   return (
-    <>
+    <> 
       <ConnectedRouter history={history} >
         <Suspense fallback={<RouteNProgress />}>
           {
@@ -26,8 +25,8 @@ const App = () => {
             }} />
           }
           <Switch>
-            <PrivateRoute path="/todo" component={ToDo} />
-            <PublicRoute path="/signup" component={SignUp} />
+            <PrivateRoute path="/todo" component={ToDo} title="helmet.todo.title" description="helmet.todo.description" />
+            <PublicRoute path="/signup" component={SignUp} title="helmet.signup.title" description="helmet.signup.description" />
             <Route component={NotFound} />
           </Switch>
         </Suspense>
@@ -36,4 +35,4 @@ const App = () => {
   )
 }
 
-export default App
+export default Routes

@@ -6,6 +6,7 @@ import {
   TeamOutlined,
 } from '@ant-design/icons'
 import { Logo, SiderBlock } from './index.styled';
+import { FormattedMessage } from 'react-intl';
 
 const App = ({ collapsed, onCollapse }) => {
   const location = useLocation()
@@ -23,12 +24,12 @@ const App = ({ collapsed, onCollapse }) => {
       >
         <Menu.Item key="/todo" danger={true} title={'Home'}>
           <HomeOutlined />
-          <span>Home</span>
+          <span><FormattedMessage id="sider.menu.home" /></span>
           <Link to="/todo"></Link>
         </Menu.Item>
         <Menu.Item key="/users" title={'some of users'}>
           <TeamOutlined />
-          <span>Users</span>
+          <span><FormattedMessage id="sider.menu.users" /></span>
           <Link to="/users"></Link>
         </Menu.Item>
       </Menu>

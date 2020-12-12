@@ -3,6 +3,7 @@ import { List, Button, Switch, Alert, Col } from 'antd';
 import { CloseOutlined, CheckOutlined } from '@ant-design/icons';
 import { ColBox, RowBox, TagBox } from './index.styled';
 import { useModal } from '../../../../common/modal/default';
+import { FormattedMessage } from 'react-intl';
 
 const Item = ({ todo, onTodoRemoval, onTodoToggle }) => {
   const { showModal, renderModal } = useModal()
@@ -13,7 +14,7 @@ const Item = ({ todo, onTodoRemoval, onTodoToggle }) => {
         confirmLoading: todo.areFetching,
         onOk: () => onTodoRemoval(todo),
         render: () => (
-          <h3>{'Вы уверены, что хотите удалить?'}</h3>
+          <h3><FormattedMessage id="todo.modal.delete.title" /></h3>
         )
       })
     }

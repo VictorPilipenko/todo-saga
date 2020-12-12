@@ -2,7 +2,7 @@
 import React from 'react'
 import { Button, Menu } from 'antd'
 import ThemeSwitcher from '../../theme'
-import { Mobile } from '../../../common/responsive'
+import { Default, Mobile } from '../../../common/responsive'
 import { useDrawer } from '../../../common/drawer'
 import { Link, useLocation } from 'react-router-dom'
 import {
@@ -12,6 +12,8 @@ import {
 } from '@ant-design/icons'
 import { useSelector } from 'react-redux'
 import { FilteredLogo, HeadBlock } from './index.styled'
+import LocaleSwitcher from '../../locale'
+import { FormattedMessage } from 'react-intl'
 
 const Head = ({ collapsed }) => {
   const today = new Date().toLocaleDateString();
@@ -22,7 +24,8 @@ const Head = ({ collapsed }) => {
   return (
     <HeadBlock collapsed={collapsed}>
       <ThemeSwitcher />
-      <h1>{today}</h1>
+      <LocaleSwitcher />
+      <Default><h1>{today}</h1></Default>
       <Mobile>
         <Button type="primary" onClick={showDrawer}>
           <MoreOutlined onClick={showDrawer} />
@@ -38,12 +41,12 @@ const Head = ({ collapsed }) => {
                 <FilteredLogo src={`${process.env.PUBLIC_URL}/logo.png`} />
                 <Menu.Item key="/todo" danger={true} title={'Home'}>
                   <HomeOutlined />
-                  <span>Home</span>
+                  <span><FormattedMessage id="sider.menu.home" /></span>
                   <Link to="/todo"></Link>
                 </Menu.Item>
                 <Menu.Item key="/users" title={'some of users'}>
                   <TeamOutlined />
-                  <span>Users</span>
+                  <span><FormattedMessage id="sider.menu.users" /></span>
                   <Link to="/users"></Link>
                 </Menu.Item>
               </Menu>

@@ -1,0 +1,23 @@
+{
+  "locale.en": "английский",
+  "locale.ru": "русский",
+  "helmet.todo.title": "Список - Главная страница",
+  "helmet.todo.description": "Мы любим учиться - каждый день в любой форме.",
+  "helmet.signup.title": "Список - Cтраница регистрации",
+  "helmet.signup.description": "Регистрация нового пользователя",
+  "helmet.404.title": "Список - Страница не найдена",
+  "helmet.404.description": "Сожалеем, что страница не найдена :/",  
+  "sider.menu.home": "дом",
+  "sider.menu.users": "пользователи",
+  "todo.hader.title": "Добавить Todo",
+  "todo.hader.subtitle": "Чтобы добавить задачу, просто заполните форму ниже и нажмите «Добавить задачу».",
+  "todo.input.title": "записать новое",
+  "todo.input.placeholder": "что нужно сделать?",
+  "todo.input.button": "добавить задачу",
+  "todo.modal.delete.title": "Вы уверены, что хотите удалить?",
+  "list.title": "список",
+  "theme.light": "день",
+  "theme.dark": "ночь",
+  "app.footer": "todo-saga ©2020 Сделал thejustvic",
+  "404.button": "домой"
+}

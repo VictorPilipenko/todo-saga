@@ -21,3 +21,5 @@ export const SET_PAGE_SIZE = "SET_PAGE_SIZE"
 export const APP_THEME = "APP_THEME"
 export const CHANGE_APP_THEME = "CHANGE_APP_THEME"
 
+export const APP_LOCALE = "APP_LOCALE"
+export const CHANGE_APP_LOCALE = "CHANGE_APP_LOCALE"

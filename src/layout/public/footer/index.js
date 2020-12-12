@@ -1,11 +1,12 @@
 
 import React from 'react'
+import { FormattedMessage } from 'react-intl';
 import { FooterBlock } from './index.styled'
 
 const FooterApp = () => {
   return (
     <FooterBlock>
-      todo-saga ©2020 Created by thejustvic
+      <FormattedMessage id="app.footer" />
     </FooterBlock>
   );
 };

@@ -9,7 +9,7 @@ import { Warning } from './index.styled';
 
 const SignUp = () => {
   const dispatch = useDispatch();
-  const { loading } = useSelector((state) => state.user);
+  // const { loading } = useSelector((state) => state.user);
 
   const [email, setEmail, changeEmail] = useInput('');
   const [nickname, setNickname, changeNickname] = useInput('');

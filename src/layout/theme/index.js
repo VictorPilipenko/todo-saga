@@ -6,6 +6,7 @@ import lightVars from '../../themes/light.json';
 import { changeBodyScrollbarTheme } from '../../config/overlayBodyScrollbar';
 import { useDispatch, useSelector } from 'react-redux';
 import { appTheme } from '../../store/actions/theme';
+import { FormattedMessage } from 'react-intl';
 
 const ThemeSwitcher = () => {
   const dispatch = useDispatch()
@@ -35,8 +36,8 @@ const ThemeSwitcher = () => {
         window.less.modifyVars(vars).catch(error => { })
       }}
     >
-      <Select.Option value="light">Light</Select.Option>
-      <Select.Option value="dark">Dark</Select.Option>
+      <Select.Option value="light"><FormattedMessage id="theme.light" /></Select.Option>
+      <Select.Option value="dark"><FormattedMessage id="theme.dark" /></Select.Option>
     </Select>
   )
 }

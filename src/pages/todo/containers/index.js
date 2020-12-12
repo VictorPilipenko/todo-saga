@@ -1,10 +1,12 @@
 import React from 'react'
-import { Row, Card, PageHeader } from 'antd'
+import { Row, Card, Col } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
+import { FormattedMessage } from 'react-intl'
 import { markTodoDone, deleteTodo, createTodo } from '../../../store/actions/todo'
 import AddTodoForm from '../components/add'
 import TodoList from '../components/list'
 import { Default } from '../../../common/responsive'
+import { PageHeaderStyled } from './index.styled'
 
 const TodosContainer = () => {
   const { items, loading, err, pagination } = useSelector(state => state.todos)
@@ -38,16 +40,20 @@ const TodosContainer = () => {
     <>
       <Default>
         <Row>
-          <PageHeader
-            title="Add Todo"
-            subTitle="To add a todo, just fill the form below and click in add todo."
+          <PageHeaderStyled
+            title={<FormattedMessage id="todo.hader.title" />}
+            subTitle={<FormattedMessage id="todo.hader.subtitle" />}
           />
         </Row>
       </Default>
-      <Card title="Create a new todo">
+      <Card title={
+        <FormattedMessage id="todo.input.title" />
+      }>
         <AddTodoForm onFormSubmit={handleFormSubmit} loading={loading} pagination={pagination} />
       </Card>
-      <Card title="Todo List">
+      <Card title={
+        <FormattedMessage id="list.title" />
+      }>
         <TodoList
           err={err}
           loading={loading}

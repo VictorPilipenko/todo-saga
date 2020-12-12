@@ -6,6 +6,8 @@ import { getTodos } from '../../../../store/actions/todo';
 import Pagination from '../../../../common/pagination';
 import { Default } from '../../../../common/responsive';
 import { RowBox } from './index.styled';
+import { FormattedMessage } from 'react-intl';
+
 
 const AddForm = ({ onFormSubmit, loading, pagination }) => {
   const [form] = Form.useForm()
@@ -49,13 +51,15 @@ const AddForm = ({ onFormSubmit, loading, pagination }) => {
                 message: 'This field is required'
               }]}
             >
-              <Input placeholder="What needs to be done?" />
+              <FormattedMessage id="todo.input.placeholder">
+                {placeholder => <Input placeholder={placeholder} />}
+              </FormattedMessage>
             </Form.Item>
           </Col>
           <Col>
             <Button type="primary" htmlType="submit" block disabled={loading}>
               <PlusCircleFilled />
-              <Default> Add todo</Default>
+              <Default> <FormattedMessage id="todo.input.button" /></Default>
             </Button>
           </Col>
         </RowBox>

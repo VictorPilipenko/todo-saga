@@ -1,0 +1,23 @@
+{
+  "locale.en": "english",
+  "locale.ru": "russian",
+  "helmet.todo.title": "todo - Main Page",
+  "helmet.todo.description": "We love learning - every day, in every form.",
+  "helmet.signup.title": "todo - Registration Page",
+  "helmet.signup.description": "New User Registration",
+  "helmet.404.title": "todo - Page Not Found",
+  "helmet.404.description": "We are sorry that the page was not found :/",
+  "sider.menu.home": "home",
+  "sider.menu.users": "users",
+  "todo.hader.title": "Add Todo",
+  "todo.hader.subtitle": "To add a todo, just fill the form below and click in add todo.",
+  "todo.input.title": "Create a new todo",
+  "todo.input.placeholder": "What need to be done?",
+  "todo.input.button": "Add Todo",
+  "todo.modal.delete.title": "Are you sure you want to delete?",
+  "list.title": "Todo List",
+  "theme.light": "light",
+  "theme.dark": "dark",
+  "app.footer": "todo-saga ©2020 Created by thejustvic",
+  "404.button": "go home"
+}
