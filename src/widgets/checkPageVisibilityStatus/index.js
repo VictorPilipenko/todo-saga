@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import { useInterval } from '../hooks/useInterval'
-import { usePageVisibility } from '../hooks/usePageVisibility'
+import { useEffect, useState } from 'react'
+import { useInterval } from '../../hooks/useInterval'
+import { usePageVisibility } from '../../hooks/usePageVisibility'
 
 const CheckPageVisibilityStatus = () => {
   const isVisible = usePageVisibility()

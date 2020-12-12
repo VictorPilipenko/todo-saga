@@ -1,13 +1,10 @@
-import React, { Suspense, lazy } from 'react'
+import { Suspense, lazy } from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import { ConnectedRouter } from 'connected-react-router'
-import NProgress from 'nprogress'
-import RouteNProgress from '../utils/routeNProgress'
-import config from '../config/nprogress'
-import PublicRoute from '../utils/publicRoute'
-import PrivateRoute from '../utils/privateRoute'
 import { history } from '../store'
-NProgress.configure(config)
+import RouteNProgress from './suspenseFallback'
+import PrivateRoute from './hoc/private'
+import PublicRoute from './hoc/public'
 
 const ToDo = lazy(() => import('../pages/todo'))
 const SignUp = lazy(() => import('../pages/signup'))

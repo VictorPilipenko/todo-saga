@@ -2,17 +2,17 @@
   "todos": [
     {
       "text": "kjl;",
-      "done": true,
+      "done": false,
       "id": 9
     },
     {
       "text": "dfdgdfg",
-      "done": true,
+      "done": false,
       "id": 10
     },
     {
       "text": "cgh",
-      "done": true,
+      "done": false,
       "id": 21
     },
     {
@@ -27,12 +27,12 @@
     },
     {
       "text": "lkfd;bcv",
-      "done": true,
+      "done": false,
       "id": 24
     },
     {
       "text": "yhujtyu",
-      "done": true,
+      "done": false,
       "id": 27
     },
     {

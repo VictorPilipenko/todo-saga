@@ -1,11 +1,8 @@
 
-import React from 'react'
 import { IntlProvider } from 'react-intl'
 import { ConfigProvider } from 'antd'
 import { useSelector } from 'react-redux'
-import CheckOnlineStatusModal from '../utils/checkOnlineStatusModal'
-// import CheckPageVisibilityStatus from '../utils/checkPageVisibilityStatus'
-import GlobalStyle from '../styles/global'
+import Widgets from '../widgets'
 import Routes from '../routes'
 
 const App = () => {
@@ -14,9 +11,7 @@ const App = () => {
   return (
     <ConfigProvider locale={components}>
       <IntlProvider locale={locale} messages={messages}>
-        <CheckOnlineStatusModal />
-        {/* <CheckPageVisibilityStatus /> */}
-        <GlobalStyle />
+        <Widgets />
         <Routes />
       </IntlProvider>
     </ConfigProvider>

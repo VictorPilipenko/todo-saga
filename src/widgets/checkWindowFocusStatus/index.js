@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import { useWindowFocus } from '../hooks/useWindowFocus'
+import { useEffect } from 'react'
+import { useWindowFocus } from '../../hooks/useWindowFocus'
 
 const CheckWindowFocusStatus = () => {
   const isWindowFocused = useWindowFocus()

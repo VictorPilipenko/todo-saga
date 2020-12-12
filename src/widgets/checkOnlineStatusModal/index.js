@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import { useModal } from '../common/modal/default'
-import { useIsFirstMount } from '../hooks/useIsFirstMount'
-import { useNavigatorOnLine } from '../hooks/useNavigatorOnLine'
+import { useEffect, useState } from 'react'
+import { useModal } from '../../common/modal/default'
+import { useIsFirstMount } from '../../hooks/useIsFirstMount'
+import { useNavigatorOnLine } from '../../hooks/useNavigatorOnLine'
 
 const CheckOnlineStatusModal = () => {
   const isFirstMount = useIsFirstMount()
@@ -30,4 +30,3 @@ const CheckOnlineStatusModal = () => {
 }
 
 export default CheckOnlineStatusModal
-
