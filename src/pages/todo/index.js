@@ -1,6 +1,5 @@
 
-import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import reduxQuerySync from 'redux-query-sync';
 import Template from "./containers/template";
 import { getTodos } from "../../store/actions/todo";
@@ -15,13 +14,14 @@ reduxQuerySync({
 })
 
 const App = () => {
+  const dispatch = useDispatch()
   const { pagination } = useSelector(state => state.todos)
 
   const getTodosAPI = () => {
-    return getTodos({
+    dispatch(getTodos({
       page: pagination.currentPage,
       pageSize: pagination.pageSize
-    })
+    }))
   }
 
   return (

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+// import React, { useCallback, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Form, Row, Col, Button, Input } from 'antd';
 import { PlusCircleFilled } from '@ant-design/icons';
@@ -7,7 +7,6 @@ import Pagination from '../../../../common/pagination';
 import { Default } from '../../../../common/responsive';
 import { RowBox } from './index.styled';
 import { FormattedMessage, useIntl } from 'react-intl';
-
 
 const AddForm = ({ onFormSubmit, loading, pagination }) => {
   const intl = useIntl()
@@ -28,13 +27,6 @@ const AddForm = ({ onFormSubmit, loading, pagination }) => {
       pageSize
     }))
   }
-
-  useEffect(() => {
-    dispatch(getTodos({
-      page: pagination.currentPage,
-      pageSize: pagination.pageSize
-    }))
-  }, []) // eslint-disable-line
 
   return (
     <Form

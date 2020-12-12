@@ -24,7 +24,7 @@ const options = {
   stylesDir: path.join(__dirname, './src'),
   antDir: path.join(__dirname, './node_modules/antd'),
   varFile: path.join(__dirname, './src/themes/vars.less'),
-  lessUrl: "https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js",
+  // lessUrl: "https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js",
   themeVariables: Array.from(new Set([
     ...Object.keys(darkVars),
     ...Object.keys(lightVars),

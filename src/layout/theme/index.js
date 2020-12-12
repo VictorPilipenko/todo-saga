@@ -8,32 +8,28 @@ import { useDispatch, useSelector } from 'react-redux';
 import { appTheme } from '../../store/actions/theme';
 import { FormattedMessage } from 'react-intl';
 
+const initVars = JSON.parse(localStorage.getItem("app-theme")) || lightVars
+
 const ThemeSwitcher = () => {
   const dispatch = useDispatch()
   const { name } = useSelector(state => state.theme)
-  const [vars, setVars] = useState(JSON.parse(localStorage.getItem("app-theme")) || lightVars)
+  const [vars, setVars] = useState(initVars)
 
   useEffect(() => {
     window.less.modifyVars(vars).catch(error => { })
     changeBodyScrollbarTheme(name)
-  }, [])// eslint-disable-line
-
-  useEffect(() => {
-    changeBodyScrollbarTheme(name)
-  }, [name])// eslint-disable-line
+  }, [vars, name])
 
   return (
     <Select
       placeholder="Please select theme"
       value={name}
       onSelect={value => {
-        let vars = value === 'light' ? lightVars : darkVars
-        vars = { ...vars, '@white': '#fff', '@black': '#000' }
-        dispatch(appTheme(value))
-        setVars(vars)
+        const vars = value === 'light' ? lightVars : darkVars
         localStorage.setItem("app-theme", JSON.stringify(vars))
         localStorage.setItem("theme-name", value)
-        window.less.modifyVars(vars).catch(error => { })
+        dispatch(appTheme(value))
+        setVars(vars)
       }}
     >
       <Select.Option value="light"><FormattedMessage id="theme.light" /></Select.Option>

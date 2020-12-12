@@ -1,12 +1,10 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
 import { usePageVisibility } from "../../../../hooks/usePageVisibility";
 import { axiosCache } from "../../../../config/axios";
 import { useIsFirstMount } from "../../../../hooks/useIsFirstMount";
 import { TemplateBlock } from "./index.styled";
 
 const Template = ({ children, callOnPageVisibility }) => {
-  const dispatch = useDispatch()
   const isFirstMount = useIsFirstMount()
   const isVisible = usePageVisibility()
 
@@ -18,9 +16,13 @@ const Template = ({ children, callOnPageVisibility }) => {
     ) {
       console.log(`${callOnPageVisibility?.name} from Template on usePageVisibility hook by isVisible === true`)
       axiosCache.reset()
-      dispatch(callOnPageVisibility())
+      callOnPageVisibility()
     }
-  }, [isVisible]) // eslint-disable-line
+  }, [ // eslint-disable-line
+    isVisible, 
+    // isFirstMount,
+    // callOnPageVisibility, 
+  ]) 
 
   return <TemplateBlock>{children}</TemplateBlock>
 }

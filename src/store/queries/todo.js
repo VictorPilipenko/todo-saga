@@ -1,6 +1,6 @@
 import { setCurrentPage, setPageSize } from "../actions/todo";
 
-export default {
+const queries = {
 	page: {
 		selector: state => state.todos.pagination.currentPage,
     action: setCurrentPage,
@@ -12,3 +12,5 @@ export default {
     stringToValue: string => Number.parseInt(string) || 1
   },
 };
+
+export default queries

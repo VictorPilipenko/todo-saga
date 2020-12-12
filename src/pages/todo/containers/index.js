@@ -1,17 +1,23 @@
-import React from 'react'
-import { Row, Card, Col } from 'antd'
+import { Row, Card } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
 import { FormattedMessage } from 'react-intl'
-import { markTodoDone, deleteTodo, createTodo } from '../../../store/actions/todo'
+import { markTodoDone, deleteTodo, createTodo, getTodos } from '../../../store/actions/todo'
 import AddTodoForm from '../components/add'
 import TodoList from '../components/list'
 import { Default } from '../../../common/responsive'
 import { PageHeaderStyled } from './index.styled'
+import useDispatchOnFirstMount from '../../../hooks/useDispatchOnFirstMount'
 
 const TodosContainer = () => {
+  const dispatch = useDispatch()
   const { items, loading, err, pagination } = useSelector(state => state.todos)
 
-  const dispatch = useDispatch()
+  useDispatchOnFirstMount({
+    handler: getTodos({
+      page: pagination.currentPage,
+      pageSize: pagination.pageSize
+    })
+  })
 
   const handleFormSubmit = (todo) => {
     const data = {

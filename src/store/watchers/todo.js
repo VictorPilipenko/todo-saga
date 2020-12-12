@@ -1,9 +1,9 @@
+import { LOCATION_CHANGE } from 'connected-react-router';
 import { takeLatest, fork, cancel, take, takeEvery } from "redux-saga/effects";
 import {
   createTodoSaga, getTodosSaga, markTodoSaga, deleteTodoSaga
 } from '../sagas/todo'
 import * as TYPES from '../types'
-import { LOCATION_CHANGE } from 'connected-react-router';
 
 const cancellationFlow = saga => function* (action) {
   const task = yield fork(saga, action)
