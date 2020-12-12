@@ -1,5 +1,3 @@
-
-import React from 'react'
 import ThemeSwitcher from '../../theme'
 import { HeadBlock } from './index.styled'
 

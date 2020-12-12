@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { usePageVisibility } from "../../../../hooks/usePageVisibility";
 import { axiosCache } from "../../../../config/axios";
 import { useIsFirstMount } from "../../../../hooks/useIsFirstMount";

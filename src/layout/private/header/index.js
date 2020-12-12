@@ -1,5 +1,4 @@
 
-import React from 'react'
 import { Button, Menu } from 'antd'
 import ThemeSwitcher from '../../theme'
 import { Default, Mobile } from '../../../common/responsive'

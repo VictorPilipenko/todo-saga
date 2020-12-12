@@ -1,4 +1,3 @@
-import React from 'react';
 import { FormattedMessage } from 'react-intl'
 import { useHistory } from 'react-router-dom'
 import DefaultHelmet from '../../common/helmet/default';

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Sider from './sider'
 import Footer from './footer'
 import Header from './header'

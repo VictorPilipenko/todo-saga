@@ -1,4 +1,3 @@
-
 import { IntlProvider } from 'react-intl'
 import { ConfigProvider } from 'antd'
 import { useSelector } from 'react-redux'

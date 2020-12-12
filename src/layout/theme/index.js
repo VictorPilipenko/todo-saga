@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Select } from 'antd'
 import darkVars from '../../themes/dark.json';
 import lightVars from '../../themes/light.json';

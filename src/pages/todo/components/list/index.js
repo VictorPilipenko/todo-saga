@@ -1,4 +1,3 @@
-import React from 'react'
 import { Alert, List, Skeleton } from 'antd'
 import Item from '../item'
 

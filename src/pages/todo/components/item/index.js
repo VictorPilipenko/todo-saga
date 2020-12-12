@@ -1,4 +1,3 @@
-import React from 'react';
 import { List, Button, Switch, Alert, Col } from 'antd';
 import { CloseOutlined, CheckOutlined } from '@ant-design/icons';
 import { ColBox, RowBox, TagBox } from './index.styled';

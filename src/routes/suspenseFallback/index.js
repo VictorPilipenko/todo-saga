@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import NProgress from 'nprogress'
 import { Loader } from '../../common/loader'
 import config from '../../config/nprogress'

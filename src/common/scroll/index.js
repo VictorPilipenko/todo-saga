@@ -1,4 +1,3 @@
-import React from "react"
 import { OverlayScrollbarsComponent } from "overlayscrollbars-react"
 import { useSelector } from "react-redux"
 

@@ -1,5 +1,4 @@
 
-import React from 'react'
 import { Select } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
 import { appLocale } from '../../store/actions/locale'
