@@ -1,4 +1,4 @@
-import API from '../config/axios';
+import API from '../config/axios'
 
 export const createAPI = post => API.post("todos", post)
 export const getAPI = payload => API.get(`todos?_page=${payload.page}&_limit=${payload.pageSize}`, { useCache: true })

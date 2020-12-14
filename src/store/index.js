@@ -5,10 +5,12 @@ import { connectRouter, routerMiddleware } from 'connected-react-router'
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { combineReducers } from "redux";
 import { all } from "redux-saga/effects";
-import theme from "../store/reducers/theme";
-import todos from "../store/reducers/todo";
-import locale from "../store/reducers/locale";
-import todosSaga from '../store/watchers/todo'
+import auth from "./reducers/auth";
+import theme from "./reducers/theme";
+import todos from "./reducers/todo";
+import locale from "./reducers/locale";
+import authSaga from "./watchers/auth";
+import todosSaga from './watchers/todo'
 import themesSaga from "./watchers/theme";
 import localesSaga from "./watchers/locale";
 
@@ -25,6 +27,7 @@ const enhancer =
     ? compose(applyMiddleware(...middlewares))
     : composeWithDevTools(applyMiddleware(...middlewares))
 const reducer = combineReducers({
+  auth,
   locale,
   theme,
   todos,
@@ -32,6 +35,7 @@ const reducer = combineReducers({
 })
 function* rootSaga() {
   yield all([
+    authSaga(),
     localesSaga(),
     themesSaga(),
     todosSaga(),

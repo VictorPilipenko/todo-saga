@@ -1,6 +1,9 @@
 import axios from "axios"
 import { cacheAdapterEnhancer, Cache } from 'axios-extensions'
+import createAuthRefreshInterceptor from 'axios-auth-refresh'
 import notification from "../common/notification"
+import { getAccessToken, removeRefreshToken, setAccessToken, setRefreshToken } from "../utils/auth"
+import { refreshAPI } from "../api/auth"
 
 export const axiosCache = new Cache({ maxAge: 5 * 1000 })
 
@@ -13,10 +16,30 @@ const cacheConfig = {
 const instance = axios.create({
   baseURL: process.env.REACT_APP_API,
   headers: {
-    'Cache-Control': 'no-cache'
+    'Cache-Control': 'no-cache',
+    'Authorization': getAccessToken()
   },
   adapter: cacheAdapterEnhancer(axios.defaults.adapter, cacheConfig)
 })
+
+// Function that will be called to refresh authorization
+const refreshAuthLogic = failedRequest => {
+  return refreshAPI
+    .then(tokenRefreshResponse => {
+      setAccessToken(tokenRefreshResponse.data.token)
+      failedRequest.response.config.headers.Authorization = 'Bearer ' + tokenRefreshResponse.data.token
+      return Promise.resolve()
+    })
+    .catch(error => {
+      console.log("refresh fail")
+      removeAccessToken()
+      removeRefreshToken()
+      return Promise.reject(error)
+    })
+}
+
+// Instantiate the interceptor (you can chain it as it returns the axios instance)
+createAuthRefreshInterceptor(instance, refreshAuthLogic)
 
 // I keep track of the current requests that are being executed
 export const currentExecutingGetRequests = {}
@@ -36,8 +59,6 @@ instance.interceptors.request.use(
     const source = CancelToken.source();
     originalRequest.cancelToken = source.token;
     currentExecutingGetRequests[main] = source;
-
-    // here you could add the authorization header to the request
 
     return originalRequest;
   },

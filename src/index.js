@@ -1,8 +1,8 @@
 import ReactDOM from 'react-dom'
 import { Provider } from "react-redux"
+import GlobalStyle from './styles/global'
 import App from './app'
 import store from "./store"
-import GlobalStyle from './styles/global'
 
 ReactDOM.render(
   <Provider store={store}>
