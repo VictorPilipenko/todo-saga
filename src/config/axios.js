@@ -2,7 +2,7 @@ import axios from "axios"
 import { cacheAdapterEnhancer, Cache } from 'axios-extensions'
 import createAuthRefreshInterceptor from 'axios-auth-refresh'
 import notification from "../common/notification"
-import { getAccessToken, removeRefreshToken, setAccessToken, setRefreshToken } from "../utils/auth"
+import { getAccessToken, removeAccessToken, removeRefreshToken, setAccessToken } from "../utils/auth"
 import { refreshAPI } from "../api/auth"
 
 export const axiosCache = new Cache({ maxAge: 5 * 1000 })

@@ -4,7 +4,7 @@ import notification from "../../common/notification";
 import { currentExecutingGetRequests } from "../../config/axios";
 import combinedActions, { getTodosSuccess, getTodosFailure, getTodos } from "../actions/todo";
 
-const getState = (state) => state.todos;
+const getState = (state) => state.todos
 
 const cancelledAll = api => {
   Object.keys(currentExecutingGetRequests).forEach(el => {

@@ -6,7 +6,7 @@ const instBodyOverlayScrollbar = OverlayScrollbars(document.body, {
   scrollbars: {
     visibility: "auto",
     autoHide: "move",
-    autoHideDelay: 800,
+    autoHideDelay: 300,
     dragScrolling: true,
     clickScrolling: false,
     touchSupport: true,

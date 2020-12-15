@@ -22,6 +22,18 @@ const removeRefreshToken = () => {
   localStorage.removeItem('refresh_token')
 }
 
+const getRecoveryPasswordConfirmToken = () => {
+  return JSON.parse(localStorage.getItem('recovery_password_confirm_token')) || ""
+}
+
+const setRecoveryPasswordConfirmToken = (token) => {
+  localStorage.setItem('recovery_password_confirm_token', `Bearer ${JSON.stringify(token)}`)
+}
+
+const removeRecoveryPasswordConfirmToken = () => {
+  localStorage.removeItem('recovery_password_confirm_token')
+}
+
 export {
   getAccessToken,
   setAccessToken,
@@ -29,4 +41,7 @@ export {
   getRefreshToken,
   setRefreshToken,
   removeRefreshToken,
+  getRecoveryPasswordConfirmToken,
+  setRecoveryPasswordConfirmToken,
+  removeRecoveryPasswordConfirmToken,
 }

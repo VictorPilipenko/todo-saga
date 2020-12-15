@@ -9,13 +9,15 @@ import {
   TeamOutlined,
   MoreOutlined
 } from '@ant-design/icons'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { FilteredLogo, HeadBlock } from './index.styled'
 import LocaleSwitcher from '../../locale'
 import { FormattedMessage } from 'react-intl'
+import { signOut } from '../../../store/actions/auth'
 
 const Head = ({ collapsed }) => {
-  const today = new Date().toLocaleDateString();
+  const dispatch = useDispatch()
+  const today = new Date().toLocaleDateString()
   const { name } = useSelector(state => state.theme)
   const { showDrawer, renderDrawer } = useDrawer()
   const location = useLocation()
@@ -24,6 +26,7 @@ const Head = ({ collapsed }) => {
     <HeadBlock collapsed={collapsed}>
       <ThemeSwitcher />
       <LocaleSwitcher />
+      <Button onClick={() => dispatch(signOut())}>sign out</Button>
       <Default><h1>{today}</h1></Default>
       <Mobile>
         <Button type="primary" onClick={showDrawer}>
