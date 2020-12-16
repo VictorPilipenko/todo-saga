@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
 import NProgress from 'nprogress'
-import { MobileLoader, DefaultLoader } from '../../common/loader'
+import { CubeLoader, DefaultLoader } from '../../common/loader'
 import config from '../../config/nprogress'
 import 'nprogress/nprogress.css'
-import { Default, Mobile } from '../../common/responsive'
+import { getConnectionSpeed } from '../../utils/network'
 NProgress.configure(config)
 
 const RouteNProgress = () => {
@@ -16,11 +16,15 @@ const RouteNProgress = () => {
       NProgress.remove()
     }
   })
+
+  const getLoader = () => {
+    if(getConnectionSpeed() < 0.5){
+      return <CubeLoader global size={200} border={5} />
+    }
+    return <DefaultLoader global />
+  }
   
-  return <>
-    <Default><DefaultLoader global /></Default>
-    <Mobile><MobileLoader global size={200} border={5} /></Mobile>
-  </>
-};
+  return getLoader()
+}
 
 export default RouteNProgress

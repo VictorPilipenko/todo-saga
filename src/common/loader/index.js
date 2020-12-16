@@ -130,7 +130,7 @@ export const Default = styled.div`
     `}
 `;
 
-export const MobileLoader = ({ ...props }) => <Default {...props}>
+export const CubeLoader = ({ ...props }) => <Default {...props}>
   <div className="spinner-item" />
   <div className="spinner-item" />
   <div className="spinner-item" />
