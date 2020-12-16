@@ -7,8 +7,8 @@ const createSaga = sagaType => function* (action) {
   const combinedAction = combinedActions[sagaType]
   try {
     const { data } = yield call(combinedAction.api, action.payload)
-    data?.accessToken && setAccessToken(data.accessToken)
-    data?.refreshToken && setRefreshToken(data.refreshToken)
+    data?.accessToken && setAccessToken(data?.accessToken)
+    data?.refreshToken && setRefreshToken(data?.refreshToken)
     yield put(combinedAction.success(data))
     notification.success(sagaType)
     if (sagaType === "passwordRecoveryStep2") {
