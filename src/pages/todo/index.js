@@ -2,10 +2,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import reduxQuerySync from 'redux-query-sync';
 import Template from "./containers/template";
-import { getTodos } from "../../store/actions/todo";
-import queries from "../../store/queries/todo";
+import { getTodos } from "../../store/actions/restful/todo";
+import queries from "../../store/queries/restful/todo";
 import store from "../../store"
 import TodosContainer from "./containers";
+import SocketComponent from "./components/socket";
 reduxQuerySync({
   store,
   params: queries,
@@ -26,6 +27,7 @@ const App = () => {
 
   return (
     <Template callOnPageVisibility={getTodosAPI}>
+      <SocketComponent />
       <TodosContainer />
     </Template>
   )

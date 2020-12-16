@@ -5,11 +5,11 @@ import Widgets from '../widgets'
 import Routes from '../routes'
 
 const App = () => {
-  const { locale, messages, components } = useSelector(state => state.locale)
+  const { language, messages, components } = useSelector(state => state.locale)
 
   return (
     <ConfigProvider locale={components}>
-      <IntlProvider locale={locale} messages={messages}>
+      <IntlProvider locale={language} messages={messages}>
         <Widgets />
         <Routes />
       </IntlProvider>

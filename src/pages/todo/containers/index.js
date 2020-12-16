@@ -1,7 +1,7 @@
 import { Row, Card } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
 import { FormattedMessage } from 'react-intl'
-import { markTodoDone, deleteTodo, createTodo, getTodos } from '../../../store/actions/todo'
+import { markTodoDone, deleteTodo, createTodo, getTodos } from '../../../store/actions/restful/todo'
 import AddTodoForm from '../components/add'
 import TodoList from '../components/list'
 import { Default } from '../../../common/responsive'

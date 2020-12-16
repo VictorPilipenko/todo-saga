@@ -4,7 +4,7 @@ import {
 } from 'antd'
 import { useDispatch, useSelector } from 'react-redux';
 import SignLayout from '../../../layout/sign'
-import { passwordRecoveryStep1 } from '../../../store/actions/auth';
+import { passwordRecoveryStep1 } from '../../../store/actions/restful/auth';
 import { SubmitButton } from '../../../layout/sign/index.styled';
 
 const SignIn = () => {

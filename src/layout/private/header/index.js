@@ -13,7 +13,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { FilteredLogo, HeadBlock } from './index.styled'
 import LocaleSwitcher from '../../locale'
 import { FormattedMessage } from 'react-intl'
-import { signOut } from '../../../store/actions/auth'
+import { signOut } from '../../../store/actions/restful/auth'
 
 const Head = ({ collapsed }) => {
   const dispatch = useDispatch()

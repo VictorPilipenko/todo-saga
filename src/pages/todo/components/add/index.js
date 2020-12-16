@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { Form, Row, Col, Button, Input } from 'antd';
 import { PlusCircleFilled } from '@ant-design/icons';
-import { getTodos } from '../../../../store/actions/todo';
+import { getTodos } from '../../../../store/actions/restful/todo';
 import Pagination from '../../../../common/pagination';
 import { Default } from '../../../../common/responsive';
 import { RowBox } from './index.styled';

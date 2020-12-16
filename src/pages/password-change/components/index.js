@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import SignLayout from '../../../layout/sign'
 import { SubmitButton } from '../../../layout/sign/index.styled';
-import { passwordRecoveryStep2 } from '../../../store/actions/auth';
+import { passwordRecoveryStep2 } from '../../../store/actions/restful/auth';
 import { setRecoveryPasswordConfirmToken } from '../../../utils/auth';
 
 const params = new URL(document.location).searchParams

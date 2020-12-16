@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { usePageVisibility } from "../../../../hooks/usePageVisibility";
-import { axiosCache } from "../../../../config/axios";
+import { axiosCache } from "../../../../config/restful";
 import { useIsFirstMount } from "../../../../hooks/useIsFirstMount";
 import { TemplateBlock } from "./index.styled";
 

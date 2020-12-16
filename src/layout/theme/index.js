@@ -5,7 +5,7 @@ import darkVars from '../../themes/dark.json';
 import lightVars from '../../themes/light.json';
 import { changeBodyScrollbarTheme } from '../../config/overlayBodyScrollbar';
 import { useDispatch, useSelector } from 'react-redux';
-import { appTheme } from '../../store/actions/theme';
+import { appTheme } from '../../store/actions/local/theme';
 import { FormattedMessage } from 'react-intl';
 
 const initVars = JSON.parse(localStorage.getItem("app-theme")) || lightVars

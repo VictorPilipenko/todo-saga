@@ -1,8 +1,10 @@
 import { Alert } from 'antd'
-import Paragraph from 'antd/lib/typography/Paragraph'
+import { Typography } from 'antd'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Background } from './index.styled'
+
+const { Paragraph } = Typography
 
 const SignLayout = ({ children }) => {
   const { err } = useSelector(state => state.auth)

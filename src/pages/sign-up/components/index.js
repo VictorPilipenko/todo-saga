@@ -7,7 +7,7 @@ import {
 import { QuestionCircleOutlined } from '@ant-design/icons'
 import { SubmitButton } from '../../../layout/sign/index.styled';
 import SignLayout from '../../../layout/sign'
-import { signUp } from '../../../store/actions/auth';
+import { signUp } from '../../../store/actions/restful/auth';
 import { useDispatch, useSelector } from 'react-redux';
 
 const SignUp = () => {
