@@ -1,4 +1,5 @@
 import { Suspense, lazy } from 'react'
+import { useSelector } from 'react-redux'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import { ConnectedRouter } from 'connected-react-router'
 import { history } from '../store'
@@ -14,12 +15,13 @@ const PasswordChange = lazy(() => import('../pages/password-change'))
 const ToDo = lazy(() => import('../pages/todo'))
 
 const Routes = () => {
+  const { location } = useSelector(state => state.router)
   return (
     <> 
       <ConnectedRouter history={history} >
         <Suspense fallback={<Loader />}>
           {
-            window.location.pathname === '/' &&
+            location.pathname === '/' &&
             <Redirect to={{
               pathname: '/todo'
             }} />
