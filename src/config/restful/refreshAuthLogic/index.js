@@ -1,19 +1,23 @@
-import { refreshAPI } from "../../../api/restful/auth"
-import { removeAccessToken, removeRefreshToken, setAccessToken } from "../../../utils/auth"
+import axios from 'axios';
+import store from '../../../store';
+import { signOut } from '../../../store/actions/restful/auth';
+import { getRefreshToken, setAccessToken } from "../../../utils/auth"
 
 // Function that will be called to refresh authorization
 const refreshAuthLogic = failedRequest => {
-  return refreshAPI
-    .then(tokenRefreshResponse => {
-      setAccessToken(tokenRefreshResponse.data.token)
-      failedRequest.response.config.headers.Authorization = 'Bearer ' + tokenRefreshResponse.data.token
+  return axios
+    .get('/api/refresh', {
+      headers: {
+        'x-auth-refresh-token': getRefreshToken()
+      }
+    })
+    .then(({ data }) => {
+      setAccessToken(data.token)
+      failedRequest.response.config.headers.Authorization = 'Bearer ' + data.token
       return Promise.resolve()
     })
     .catch(error => {
-      console.log("refresh fail")
-      removeAccessToken()
-      removeRefreshToken()
-      return Promise.reject(error)
+      store.dispatch(signOut())
     })
 }
 

@@ -21,7 +21,7 @@ export const initialState = {
     totalPages: 1,
     totalCount: 1,
   },
-  err: ""
+  error: ""
 };
 
 const reducer = (state = initialState, action) => {
@@ -46,7 +46,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         loading: initialState.loading,
-        err: initialState.err,
+        error: initialState.error,
       };
     case TYPES.GET_TODOS_REQUEST:
     case TYPES.CREATE_TODO_REQUEST:
@@ -73,14 +73,14 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         loading: initialState.loading,
-        err: initialState.err,
+        error: initialState.error,
       };
     case TYPES.DELETE_TODO_SUCCESS:
       return {
         ...state,
         items: state.items.filter(item => item.details.id !== action.payload.id),
         loading: initialState.loading,
-        err: initialState.err,
+        error: initialState.error,
       };
     case TYPES.MARK_TODO_DONE_SUCCESS:
       return {
@@ -100,13 +100,13 @@ const reducer = (state = initialState, action) => {
           return item;
         }),
         loading: initialState.loading,
-        err: initialState.err,
+        error: initialState.error,
       };
     case TYPES.GET_TODOS_SUCCESS:
       return {
         ...state,
         loading: initialState.loading,
-        err: initialState.err,
+        error: initialState.error,
         items: action.payload.items,
         pagination: action.payload.pagination
       };
@@ -115,7 +115,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         loading: initialState.loading,
-        err: action.payload.message
+        error: action.payload.message
       };
     case TYPES.DELETE_TODO_FAILURE:
     case TYPES.MARK_TODO_DONE_FAILURE:
@@ -132,7 +132,7 @@ const reducer = (state = initialState, action) => {
           return item;
         }),
         loading: initialState.loading,
-        err: initialState.err,
+        error: initialState.error,
       };
     default:
       return state;

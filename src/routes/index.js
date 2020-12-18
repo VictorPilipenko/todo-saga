@@ -2,7 +2,7 @@ import { Suspense, lazy } from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import { ConnectedRouter } from 'connected-react-router'
 import { history } from '../store'
-import RouteNProgress from './suspenseFallback'
+import Loader from './suspenseFallback'
 import PrivateRoute from './hoc/private'
 import PublicRoute from './hoc/public'
 
@@ -17,7 +17,7 @@ const Routes = () => {
   return (
     <> 
       <ConnectedRouter history={history} >
-        <Suspense fallback={<RouteNProgress />}>
+        <Suspense fallback={<Loader />}>
           {
             window.location.pathname === '/' &&
             <Redirect to={{

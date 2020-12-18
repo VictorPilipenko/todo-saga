@@ -1,4 +1,4 @@
-import { Button } from "antd"
+import { Alert, Button } from "antd"
 import styled from "styled-components"
 import media from '../../common/responsive/device'
 
@@ -21,4 +21,9 @@ export const Background = styled.div`
 
 export const SubmitButton = styled(Button)`
   width: 100%;
+`
+
+export const ErrorAlert = styled.div`
+  margin-top: 10px;
+  margin-bottom: 10px;
 `

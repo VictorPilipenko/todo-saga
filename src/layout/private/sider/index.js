@@ -4,8 +4,8 @@ import {
   HomeOutlined,
   TeamOutlined,
 } from '@ant-design/icons'
-import { Logo, SiderBlock } from './index.styled';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage } from 'react-intl'
+import { Logo, SiderBlock } from './index.styled'
 
 const App = ({ collapsed, onCollapse }) => {
   const location = useLocation()

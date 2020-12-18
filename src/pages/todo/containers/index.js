@@ -10,7 +10,7 @@ import useDispatchOnFirstMount from '../../../hooks/useDispatchOnFirstMount'
 
 const TodosContainer = () => {
   const dispatch = useDispatch()
-  const { items, loading, err, pagination } = useSelector(state => state.todos)
+  const { items, loading, error, pagination } = useSelector(state => state.todos)
 
   useDispatchOnFirstMount({
     handler: getTodos({
@@ -61,7 +61,7 @@ const TodosContainer = () => {
         <FormattedMessage id="list.title" />
       }>
         <TodoList
-          err={err}
+          error={error}
           loading={loading}
           todos={items}
           onTodoRemoval={handleRemoveTodo}

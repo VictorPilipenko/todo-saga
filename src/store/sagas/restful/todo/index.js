@@ -47,10 +47,10 @@ export const createSaga = sagaType => function* (action) {
 
       yield put(getTodos(pagination))
     }
-  } catch (err) {
+  } catch (error) {
     yield put(combinedAction.failure({
       id: action.payload.id,
-      message: err.message
+      message: error.message
     }))
     notification.error(sagaType)
   }
@@ -88,8 +88,8 @@ export function* getTodosSaga(action) {
       pagination
     }))
     notification.success("get")
-  } catch (err) {
-    yield put(getTodosFailure(err))
+  } catch (error) {
+    yield put(getTodosFailure(error))
     notification.error("get")
   }
   finally {

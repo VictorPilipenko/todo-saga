@@ -1,9 +1,9 @@
 const getAccessToken = () => {
-  return JSON.parse(localStorage.getItem('access_token')) || ""
+  return localStorage.getItem('access_token') || ""
 }
 
 const setAccessToken = (token) => {
-  localStorage.setItem('access_token', `Bearer ${JSON.stringify(token)}`)
+  localStorage.setItem('access_token', `Bearer ${token}`)
 }
 
 const removeAccessToken = () => {
@@ -11,11 +11,11 @@ const removeAccessToken = () => {
 }
 
 const getRefreshToken = () => {
-  return JSON.parse(localStorage.getItem('refresh_token')) || ""
+  return localStorage.getItem('refresh_token') || ""
 }
 
 const setRefreshToken = (token) => {
-  localStorage.setItem('refresh_token', `Bearer ${JSON.stringify(token)}`)
+  localStorage.setItem('refresh_token', `Bearer ${token}`)
 }
 
 const removeRefreshToken = () => {
@@ -23,11 +23,11 @@ const removeRefreshToken = () => {
 }
 
 const getRecoveryPasswordConfirmToken = () => {
-  return JSON.parse(localStorage.getItem('recovery_password_confirm_token')) || ""
+  return localStorage.getItem('recovery_password_confirm_token') || ""
 }
 
 const setRecoveryPasswordConfirmToken = (token) => {
-  localStorage.setItem('recovery_password_confirm_token', `Bearer ${JSON.stringify(token)}`)
+  localStorage.setItem('recovery_password_confirm_token', `Bearer ${token}`)
 }
 
 const removeRecoveryPasswordConfirmToken = () => {

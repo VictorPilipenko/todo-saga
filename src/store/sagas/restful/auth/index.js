@@ -1,21 +1,34 @@
 import { put, call } from "redux-saga/effects"
+import { push } from 'connected-react-router'
 import notification from "../../../../common/notification"
 import { removeRecoveryPasswordConfirmToken, setAccessToken, setRefreshToken } from "../../../../utils/auth"
 import combinedActions from "../../../actions/restful/auth"
+import { openSocket } from "../../../actions/sockets"
 
 const createSaga = sagaType => function* (action) {
   const combinedAction = combinedActions[sagaType]
   try {
     const { data } = yield call(combinedAction.api, action.payload)
-    data?.accessToken && setAccessToken(data?.accessToken)
-    data?.refreshToken && setRefreshToken(data?.refreshToken)
-    yield put(combinedAction.success(data))
-    notification.success(sagaType)
-    if (sagaType === "passwordRecoveryStep2") {
-      removeRecoveryPasswordConfirmToken()
+    data?.accessToken && setAccessToken(data.accessToken)
+    data?.refreshToken && setRefreshToken(data.refreshToken)
+    yield put(combinedAction.success(action.payload))
+    switch (sagaType) {
+      case "signUp":
+      case "signIn":
+        yield put(openSocket())
+        break
+      case "passwordRecoveryStep2":
+        yield put(removeRecoveryPasswordConfirmToken())
+        break
+      default: return
     }
-  } catch (err) {
-    yield put(combinedAction.failure(err))
+    notification.success(sagaType)
+    yield put(push('/todo'))
+  } catch (error) {
+    const { response } = error
+    if(response){
+      yield put(combinedAction.failure(response.data))
+    }
     notification.error(sagaType)
   }
 }

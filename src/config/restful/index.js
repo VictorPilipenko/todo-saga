@@ -16,14 +16,15 @@ const cacheConfig = {
 const instance = axios.create({
   baseURL: process.env.REACT_APP_REST_API,
   headers: {
-    'Cache-Control': 'no-cache',
-    'Authorization': getAccessToken()
+    'Cache-Control': 'no-cache'
   },
   adapter: cacheAdapterEnhancer(axios.defaults.adapter, cacheConfig)
 })
 
 // Instantiate the interceptor (you can chain it as it returns the axios instance)
-createAuthRefreshInterceptor(instance, refreshAuthLogic)
+createAuthRefreshInterceptor(instance, refreshAuthLogic, {
+  statusCodes: [401] // default: [ 401 ]
+})
 
 // I keep track of the current requests that are being executed
 export const currentExecutingGetRequests = {}
@@ -44,10 +45,12 @@ instance.interceptors.request.use(
     originalRequest.cancelToken = source.token;
     currentExecutingGetRequests[main] = source;
 
+    originalRequest.headers.Authorization = getAccessToken()
+
     return originalRequest;
   },
-  (err) => {
-    return Promise.reject(err);
+  (error) => {
+    return Promise.reject(error);
   }
 )
 
@@ -96,10 +99,8 @@ instance.interceptors.response.use(
         console.error(response.status, message);
         notification.warning('Bad Request');
         break;
-      case 401: // authentication error, logout the user
+      case 401:
         notification.warning('Unauthorized');
-        // localStorage.removeItem('token');
-        // router.push('/auth');
         break;
       case 404:
         notification.warning('Data Not Found');

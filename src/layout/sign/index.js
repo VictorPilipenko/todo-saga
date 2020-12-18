@@ -1,17 +1,19 @@
-import { Alert } from 'antd'
-import { Typography } from 'antd'
+import { Alert, Typography } from 'antd'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { Background } from './index.styled'
+import { Background, ErrorAlert } from './index.styled'
 
 const { Paragraph } = Typography
 
 const SignLayout = ({ children }) => {
-  const { err } = useSelector(state => state.auth)
+  const { error } = useSelector(state => state.auth)
   return (
     <Background>
       {children}
-      {err && <Alert message={err} type="error" />}
+      {error && <ErrorAlert>
+        <Alert message={error} type="error" />
+      </ErrorAlert>
+      }
       <Paragraph>
         <ul>
           <li>

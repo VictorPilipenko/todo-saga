@@ -1,12 +1,12 @@
 import { Alert, List, Skeleton } from 'antd'
 import Item from '../item'
 
-const TodoList = ({ err, loading, todos, onTodoRemoval, onTodoToggle }) => {
+const TodoList = ({ error, loading, todos, onTodoRemoval, onTodoToggle }) => {
   return <>
-    {err ?
+    {error ?
       <Alert
         message="Ошибка"
-        description={err}
+        description={error}
         type="error"
       />
       :
