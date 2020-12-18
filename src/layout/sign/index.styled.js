@@ -1,4 +1,4 @@
-import { Alert, Button } from "antd"
+import { Button } from "antd"
 import styled from "styled-components"
 import media from '../../common/responsive/device'
 

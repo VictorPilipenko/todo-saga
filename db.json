@@ -1,14 +1,18 @@
 {
+  "users": [
+    {
+      "email": "user1@user.user",
+      "password": "$2a$10$zLnIRmVRWCznMCnlQQCEB.I/xvErfoJ2Ky6Ft6ShoTfSdlsi8ENZ.",
+      "confirm": "123456",
+      "nickname": "user1",
+      "id": 1
+    }
+  ],
   "todos": [
     {
       "text": "kjl;",
       "done": false,
       "id": 9
-    },
-    {
-      "text": "dfdgdfg",
-      "done": false,
-      "id": 10
     },
     {
       "text": "cgh",
