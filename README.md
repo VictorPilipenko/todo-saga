@@ -8,13 +8,7 @@ In the project directory, you can run:
 
 ### `npm run server`
 
-Runs the json server on 4000 port.
-
-### `npm run socket-server`
-
-Runs the sockets server on 5000 port.
-
-restful and sockets can be on the same port, but in my case I have to use multiple ports due to the lack of my json server config file.
+Runs the json-server, json-server-auth, socket.io on 4000 port.
 
 ### `npm run start`
 
