@@ -1,4 +1,4 @@
-import { Row, Card } from 'antd'
+import { Row, Card, Space } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
 import { FormattedMessage } from 'react-intl'
 import { markTodoDone, deleteTodo, createTodo, getTodos } from '../../../store/actions/restful/todo'
@@ -52,22 +52,24 @@ const TodosContainer = () => {
           />
         </Row>
       </Default>
-      <Card title={
-        <FormattedMessage id="todo.input.title" />
-      }>
-        <AddTodoForm onFormSubmit={handleFormSubmit} loading={loading} pagination={pagination} />
-      </Card>
-      <Card title={
-        <FormattedMessage id="list.title" />
-      }>
-        <TodoList
-          error={error}
-          loading={loading}
-          todos={items}
-          onTodoRemoval={handleRemoveTodo}
-          onTodoToggle={handleTodoToggle}
-        />
-      </Card>
+      <Space direction="vertical">
+        <Card title={
+          <FormattedMessage id="todo.input.title" />
+        }>
+          <AddTodoForm onFormSubmit={handleFormSubmit} loading={loading} pagination={pagination} />
+        </Card>
+        <Card title={
+          <FormattedMessage id="list.title" />
+        }>
+          <TodoList
+            error={error}
+            loading={loading}
+            todos={items}
+            onTodoRemoval={handleRemoveTodo}
+            onTodoToggle={handleTodoToggle}
+          />
+        </Card>
+      </Space>
     </>
   )
 }
