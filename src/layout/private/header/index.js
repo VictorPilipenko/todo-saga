@@ -19,7 +19,7 @@ const Head = ({ collapsed }) => {
   const dispatch = useDispatch()
   const today = new Date().toLocaleDateString()
   const { name } = useSelector(state => state.theme)
-  const { showDrawer, renderDrawer } = useDrawer()
+  const { showDrawer, hideDrawer, renderDrawer } = useDrawer()
   const location = useLocation()
 
   return (
@@ -39,6 +39,7 @@ const Head = ({ collapsed }) => {
                 theme={name}
                 mode="inline"
                 selectedKeys={[location.pathname]}
+                onClick={() => hideDrawer()}
               >
                 <FilteredLogo src={`${process.env.PUBLIC_URL}/logo.png`} />
                 <Menu.Item key="/todo" danger={true} title={'Home'}>
@@ -46,10 +47,10 @@ const Head = ({ collapsed }) => {
                   <span><FormattedMessage id="sider.menu.home" /></span>
                   <Link to="/todo"></Link>
                 </Menu.Item>
-                <Menu.Item key="/users" title={'some of users'}>
+                <Menu.Item key="/profile" title={'profile'}>
                   <TeamOutlined />
                   <span><FormattedMessage id="sider.menu.users" /></span>
-                  <Link to="/users"></Link>
+                  <Link to="/profile"></Link>
                 </Menu.Item>
               </Menu>
             </>
