@@ -6,12 +6,14 @@ import theme from "./local/theme";
 import todos from "./restful/todo";
 import locale from "./local/locale";
 import sockets from "./sockets/message";
+import profile from "./restful/profile";
 import { removeAccessToken, removeRefreshToken } from '../../utils/auth';
 
 const root = history => {
   const appReducer = combineReducers({
     sockets,
     auth,
+    profile,
     locale,
     theme,
     todos,

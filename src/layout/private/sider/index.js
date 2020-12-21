@@ -9,6 +9,7 @@ import { Logo, SiderBlock } from './index.styled'
 
 const App = ({ collapsed, onCollapse }) => {
   const location = useLocation()
+
   return (
     <SiderBlock
       collapsible
@@ -26,10 +27,10 @@ const App = ({ collapsed, onCollapse }) => {
           <span><FormattedMessage id="sider.menu.home" /></span>
           <Link to="/todo"></Link>
         </Menu.Item>
-        <Menu.Item key="/users" title={'some of users'}>
+        <Menu.Item key="/profile" title={'profile'}>
           <TeamOutlined />
           <span><FormattedMessage id="sider.menu.users" /></span>
-          <Link to="/users"></Link>
+          <Link to="/profile"></Link>
         </Menu.Item>
       </Menu>
     </SiderBlock>

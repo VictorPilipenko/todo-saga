@@ -3,7 +3,7 @@ import { push } from 'connected-react-router'
 import notification from "../../../../common/notification"
 import { removeRecoveryPasswordConfirmToken, setAccessToken, setRefreshToken } from "../../../../utils/auth"
 import combinedActions from "../../../actions/restful/auth"
-import { openSocket } from "../../../actions/sockets"
+// import { openSocket } from "../../../actions/sockets"
 
 const createSaga = sagaType => function* (action) {
   const combinedAction = combinedActions[sagaType]
@@ -15,7 +15,8 @@ const createSaga = sagaType => function* (action) {
     switch (sagaType) {
       case "signUp":
       case "signIn":
-        yield put(openSocket())
+        // yield put(openSocket())
+        yield put(push('/profile'))
         break
       case "passwordRecoveryStep2":
         yield put(removeRecoveryPasswordConfirmToken())
@@ -23,10 +24,9 @@ const createSaga = sagaType => function* (action) {
       default: return
     }
     notification.success(sagaType)
-    yield put(push('/todo'))
   } catch (error) {
     const { response } = error
-    if(response){
+    if (response) {
       yield put(combinedAction.failure(response.data))
     }
     notification.error(sagaType)

@@ -1,18 +1,19 @@
 import { ConfigProvider } from 'antd'
 import { IntlProvider } from 'react-intl'
 import { useSelector } from 'react-redux'
+import { getProfile } from '../store/actions/restful/profile'
+import useDispatchOnFirstMount from '../hooks/useDispatchOnFirstMount'
 import Widgets from '../widgets'
 import Routes from '../routes'
-// import { openSocket } from '../store/actions/sockets'
-// import useDispatchOnFirstMount from '../hooks/useDispatchOnFirstMount'
 
 const App = () => {
   const { language, messages, components } = useSelector(state => state.locale)
-  // const { isConnected } = useSelector(state => state.sockets)
+  const { isLogged } = useSelector(state => state.auth)
 
-  // useDispatchOnFirstMount({
-  //   handler: !isConnected && openSocket()
-  // })
+  useDispatchOnFirstMount({
+    handler: getProfile(),
+    condition: isLogged
+  })
 
   return (
     <ConfigProvider locale={components}>

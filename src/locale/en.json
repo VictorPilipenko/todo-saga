@@ -14,7 +14,7 @@
   "helmet.password.change.title": "todo - Password Change Page",
   "helmet.password.change.description": "User Password Change",
   "sider.menu.home": "home",
-  "sider.menu.users": "users",
+  "sider.menu.users": "profile",
   "todo.hader.title": "Add Todo",
   "todo.hader.subtitle": "To add a todo, just fill the form below and click in add todo.",
   "todo.input.title": "Create a new todo",

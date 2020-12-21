@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { message } from 'antd';
 import store from '../../../store';
 import { signOut } from '../../../store/actions/restful/auth';
 import { getRefreshToken, setAccessToken } from "../../../utils/auth"
@@ -17,6 +18,7 @@ const refreshAuthLogic = failedRequest => {
       return Promise.resolve()
     })
     .catch(error => {
+      message.info('Session Time Expired')
       store.dispatch(signOut())
     })
 }
