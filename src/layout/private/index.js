@@ -6,7 +6,7 @@ import { Default, Mobile } from '../../common/responsive';
 import { ContentBlock, LayoutBlock, LayoutInner } from './index.styled';
 
 const PrivateLayout = ({ children }) => {
-  const [collapsed, setCollapsed] = useState(false)
+  const [collapsed, setCollapsed] = useState(true)
   const onCollapse = (collapsed) => setCollapsed(collapsed)
 
   return (
