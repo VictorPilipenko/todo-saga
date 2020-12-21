@@ -29,6 +29,13 @@ const root = history => {
         auth: {
           ...initialState.auth,
           isLogged: false
+        },
+        router: {
+          ...initialState.router,
+          location: {
+            ...initialState.router.location,
+            pathname: '/'
+          }
         }
       }
     }
