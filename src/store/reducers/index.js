@@ -36,6 +36,12 @@ const root = history => {
             ...initialState.router.location,
             pathname: '/'
           }
+        },
+        locale: {
+          ...state.locale
+        },
+        theme: {
+          ...state.theme
         }
       }
     }
