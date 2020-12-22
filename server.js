@@ -18,11 +18,11 @@ app.get('/profile', auth, (req, res, next) => {
       res.json(user)
     }
     catch (error) {
-      res.status(500).json(error)
+      res.status(401).json("User not authorized")
     }
 
   } else {
-    res.status(404).json("User not authorized")
+    res.status(401).json("User not authorized")
   }
 });
 
