@@ -1,3 +1,4 @@
+import LocaleSwitcher from '../../locale'
 import ThemeSwitcher from '../../theme'
 import { HeadBlock } from './index.styled'
 
@@ -7,6 +8,7 @@ const Head = ({ collapsed }) => {
   return (
     <HeadBlock collapsed={collapsed}>
       <ThemeSwitcher />
+      <LocaleSwitcher />
       <h1>{today}</h1>
     </HeadBlock>
   )

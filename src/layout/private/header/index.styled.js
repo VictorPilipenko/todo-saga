@@ -1,6 +1,6 @@
 
 import styled, { css } from "styled-components"
-import { Layout } from 'antd'
+import { Layout, Menu } from 'antd'
 import media from '../../../common/responsive/device'
 
 const { Header } = Layout
@@ -49,3 +49,16 @@ const Logo = styled.div`
 `;
 
 export const FilteredLogo = ({ onItemHover, onOpenChange, onDeselect, ...props }) => <Logo {...props} />
+
+export const MenuBlock = styled(Menu)`
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 200px);
+  justify-content: space-between;
+`;
+
+const { ItemGroup } = MenuBlock
+
+export const ItemGroupBlock = styled(ItemGroup)`
+  height: 100%
+`;
