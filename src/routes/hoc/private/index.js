@@ -12,15 +12,18 @@ const PrivateRoute = ({ component: Component, title, description, ...rest }) => 
       }} />
     } else {
       return <PrivateLayout>
-        <DefaultHelmet
-          title={title}
-          description={description}
-        />
+        {
+          title && description &&
+          <DefaultHelmet
+            title={title}
+            description={description}
+          />
+        }
         <Component {...routeProps} />
       </PrivateLayout>
     }
   }
-  
+
   return (
     <Route
       {...rest}

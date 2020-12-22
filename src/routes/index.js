@@ -14,6 +14,7 @@ const PasswordRecovery = lazy(() => import('../pages/password-recovery'))
 const PasswordChange = lazy(() => import('../pages/password-change'))
 const ToDo = lazy(() => import('../pages/todo'))
 const Profile = lazy(() => import('../pages/profile'))
+const Dashboard = lazy(() => import('../pages/dashboard'))
 
 const Routes = () => {
   const { location } = useSelector(state => state.router)
@@ -24,7 +25,7 @@ const Routes = () => {
           {
             location.pathname === '/' &&
             <Redirect to={{
-              pathname: '/todo'
+              pathname: '/dashboard'
             }} />
           }
           <Switch>
@@ -33,7 +34,8 @@ const Routes = () => {
             <PublicRoute path="/password-recovery" component={PasswordRecovery} title="helmet.password.recover.title" description="helmet.password.recover.description" />
             <PublicRoute path="/password-change" component={PasswordChange} title="helmet.password.change.title" description="helmet.password.change.description" />
             <PrivateRoute path="/todo" component={ToDo} title="helmet.todo.title" description="helmet.todo.description" />
-            <PrivateRoute path="/profile" component={Profile} title="helmet.todo.title" description="helmet.todo.description" />
+            <PrivateRoute path="/profile" component={Profile} />
+            <PrivateRoute path="/dashboard" component={Dashboard} />
             <Route component={NotFound} />
           </Switch>
         </Suspense>
