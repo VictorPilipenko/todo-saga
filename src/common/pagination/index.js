@@ -15,7 +15,7 @@ const PaginationComponent = ({
       onChange={onChange}
       {...rest}
     />
-  );
+  )
 }
 
 export default PaginationComponent

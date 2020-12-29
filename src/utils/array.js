@@ -1,6 +1,5 @@
-const removeElementByIndex = (index, array) => (
+const removeElementByIndex = (index, array) =>
   array.slice(0, index).concat(array.slice(index + 1, array.length))
-)
 
 const cloneEntry = (entry) => JSON.parse(JSON.stringify(entry))
 
@@ -13,17 +12,17 @@ const localeComparingSort = (array, key) => {
 }
 
 const removeDuplicates = (key, list, duplicates) => {
-  list.filter(item =>
-    !duplicates.some(duplicate => duplicate[key] === item[key])
+  list.filter(
+    (item) => !duplicates.some((duplicate) => duplicate[key] === item[key])
   )
 }
 
 const sortByKey = (array, key) => {
-  array.sort((a, b) => a[key] > b[key] ? 1 : -1)
+  array.sort((a, b) => (a[key] > b[key] ? 1 : -1))
 }
 
 const makeStringOfValues = (list, key) => {
-  list ? list.map(el => el[key]).join(", ") : ""
+  return list ? list.map((el) => el[key]).join(', ') : ''
 }
 
 export {

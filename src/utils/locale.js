@@ -21,7 +21,4 @@ const getComponents = (language) => {
   }
 }
 
-export {
-  getMessages,
-  getComponents
-}
+export { getMessages, getComponents }

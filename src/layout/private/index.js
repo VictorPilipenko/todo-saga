@@ -2,8 +2,8 @@ import { useState } from 'react'
 import Sider from './sider'
 import Footer from './footer'
 import Header from './header'
-import { Default, Mobile } from '../../common/responsive';
-import { ContentBlock, LayoutBlock, LayoutInner } from './index.styled';
+import { Default, Mobile } from '../../common/responsive'
+import { ContentBlock, LayoutBlock, LayoutInner } from './index.styled'
 
 const PrivateLayout = ({ children }) => {
   const [collapsed, setCollapsed] = useState(true)
@@ -11,28 +11,22 @@ const PrivateLayout = ({ children }) => {
 
   return (
     <LayoutBlock>
-
       <Default>
         <Sider collapsed={collapsed} onCollapse={onCollapse} />
         <LayoutInner collapsed={collapsed}>
           <Header collapsed={collapsed} />
-          <ContentBlock>
-            {children}
-          </ContentBlock>
+          <ContentBlock>{children}</ContentBlock>
           <Footer />
         </LayoutInner>
       </Default>
-      
+
       <Mobile>
         <LayoutInner>
           <Header />
-          <ContentBlock>
-            {children}
-          </ContentBlock>
+          <ContentBlock>{children}</ContentBlock>
           <Footer />
         </LayoutInner>
       </Mobile>
-
     </LayoutBlock>
   )
 }

@@ -1,4 +1,4 @@
-import styled, { keyframes, css } from "styled-components";
+import styled, { keyframes, css } from 'styled-components'
 
 const sizeInPX = 200
 
@@ -29,7 +29,7 @@ const rotate_child_1 = keyframes`
   91.63% {
     transform: translate(0%, 100%);
   }
-`;
+`
 
 const rotate_child_2 = keyframes`
   0%,
@@ -56,7 +56,7 @@ const rotate_child_2 = keyframes`
   83.30% {
     transform: translate(-100%, 0%);
   }
-`;
+`
 
 const rotate_child_3 = keyframes`
   0%,
@@ -83,42 +83,46 @@ const rotate_child_3 = keyframes`
   74.97% {
     transform: translate(0, -100%);
   }
-`;
+`
 
 export const Default = styled.div`
   position: relative;
-  width: ${props => props.size ? props.size : sizeInPX}px;
-  height: ${props => props.size ? props.size : sizeInPX}px;
+  width: ${(props) => (props.size ? props.size : sizeInPX)}px;
+  height: ${(props) => (props.size ? props.size : sizeInPX)}px;
   transform: rotate(45deg);
 
   .spinner-item {
     position: absolute;
-    width: calc(${props => props.size ? props.size : sizeInPX}px / 2.5);
-    height: calc(${props => props.size ? props.size : sizeInPX}px / 2.5);
+    width: calc(${(props) => (props.size ? props.size : sizeInPX)}px / 2.5);
+    height: calc(${(props) => (props.size ? props.size : sizeInPX)}px / 2.5);
   }
 
   .spinner-item:nth-child(1) {
-    border: ${props => props.border ? props.border : borderSizeInPX}px solid #bbbb88;
+    border: ${(props) => (props.border ? props.border : borderSizeInPX)}px solid
+      #bbbb88;
     top: 0;
     left: 0;
     animation: ${rotate_child_1} 5000ms linear infinite;
   }
 
   .spinner-item:nth-child(2) {
-    border: ${props => props.border ? props.border : borderSizeInPX}px solid #eedd99;
+    border: ${(props) => (props.border ? props.border : borderSizeInPX)}px solid
+      #eedd99;
     top: 0;
-    left: calc(${props => props.size ? props.size : sizeInPX}px / 2.5);
+    left: calc(${(props) => (props.size ? props.size : sizeInPX)}px / 2.5);
     animation: ${rotate_child_2} 5000ms linear infinite;
   }
 
   .spinner-item:nth-child(3) {
-    border: ${props => props.border ? props.border : borderSizeInPX}px solid #eeaa88;
-    top: calc(${props => props.size ? props.size : sizeInPX}px / 2.5);
-    left: calc(${props => props.size ? props.size : sizeInPX}px / 2.5);
+    border: ${(props) => (props.border ? props.border : borderSizeInPX)}px solid
+      #eeaa88;
+    top: calc(${(props) => (props.size ? props.size : sizeInPX)}px / 2.5);
+    left: calc(${(props) => (props.size ? props.size : sizeInPX)}px / 2.5);
     animation: ${rotate_child_3} 5000ms linear infinite;
   }
 
-  ${props => props.global &&
+  ${(props) =>
+    props.global &&
     css`
       position: absolute;
       height: 300px;
@@ -128,13 +132,15 @@ export const Default = styled.div`
       margin-left: -150px;
       margin-top: -150px;
     `}
-`;
+`
 
-export const CubeLoader = ({ ...props }) => <Default {...props}>
-  <div className="spinner-item" />
-  <div className="spinner-item" />
-  <div className="spinner-item" />
-</Default>
+export const CubeLoader = ({ ...props }) => (
+  <Default {...props}>
+    <div className="spinner-item" />
+    <div className="spinner-item" />
+    <div className="spinner-item" />
+  </Default>
+)
 
 const rotate = keyframes`
   from {
@@ -143,8 +149,7 @@ const rotate = keyframes`
   to {
     transform: rotate(360deg);
   }
-`;
-
+`
 
 export const DefaultLoader = styled.div`
   border: 5px solid #38d9a94f;
@@ -153,7 +158,7 @@ export const DefaultLoader = styled.div`
   width: 35px;
   height: 35px;
   animation: ${rotate} 0.8s ease-in-out infinite;
-  ${props =>
+  ${(props) =>
     props.global &&
     css`
       position: absolute;
@@ -164,4 +169,4 @@ export const DefaultLoader = styled.div`
       margin-left: -50px;
       margin-top: -50px;
     `}
-`;
+`

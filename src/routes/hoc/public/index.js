@@ -1,17 +1,14 @@
-import { Route } from 'react-router-dom';
-import DefaultHelmet from '../../../common/helmet/default';
-import PublicLayout from '../../../layout/public';
+import { Route } from 'react-router-dom'
+import DefaultHelmet from '../../../common/helmet/default'
+import PublicLayout from '../../../layout/public'
 
 const PublicRoute = ({ component: Component, title, description, ...rest }) => {
   return (
     <Route
       {...rest}
-      render={routeProps => (
+      render={(routeProps) => (
         <PublicLayout>
-          <DefaultHelmet
-            title={title}
-            description={description}
-          />
+          <DefaultHelmet title={title} description={description} />
           <Component {...routeProps} />
         </PublicLayout>
       )}

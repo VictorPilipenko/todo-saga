@@ -1,21 +1,20 @@
 const getBrowserLanguage = () => {
   const language = window.navigator.language || window.navigator.userLanguage
 
-  if (language) return language.split("-")[0]
+  if (language) return language.split('-')[0]
 
-  return "en"
+  return 'en'
 }
 
 const getConnectionSpeed = () => {
-  const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection
+  const connection =
+    navigator.connection ||
+    navigator.mozConnection ||
+    navigator.webkitConnection
 
   if (connection) return connection.downlink
 
-  return "none"
+  return 'none'
 }
 
-
-export { 
-  getBrowserLanguage,
-  getConnectionSpeed
-}
+export { getBrowserLanguage, getConnectionSpeed }

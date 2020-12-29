@@ -1,4 +1,4 @@
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage } from 'react-intl'
 import { FooterBlock } from './index.styled'
 
 const FooterApp = () => {
@@ -6,7 +6,7 @@ const FooterApp = () => {
     <FooterBlock>
       <FormattedMessage id="app.footer" />
     </FooterBlock>
-  );
-};
+  )
+}
 
 export default FooterApp

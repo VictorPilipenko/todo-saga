@@ -1,22 +1,22 @@
-import { useEffect } from "react";
+import { useEffect } from 'react'
 
 const useScript = ({ url, isAsync, id, scriptText }) => {
   useEffect(() => {
-    const isScriptExist = id && Boolean(document.getElementById(id));
+    const isScriptExist = id && Boolean(document.getElementById(id))
     if (!isScriptExist) {
-      const script = document.createElement("script");
+      const script = document.createElement('script')
 
-      if (url) script.src = url;
-      if (isAsync) script.async = true;
-      if (scriptText) script.innerHTML = scriptText;
-      if (id) script.id = id;
+      if (url) script.src = url
+      if (isAsync) script.async = true
+      if (scriptText) script.innerHTML = scriptText
+      if (id) script.id = id
 
-      document.body.appendChild(script);
+      document.body.appendChild(script)
       return () => {
-        document.body.removeChild(script);
-      };
-    }
-  }, [url]);
-};
+        document.body.removeChild(script)
+      }
+    } // eslint-disable-next-line
+  }, [url])
+}
 
-export default useScript;
+export default useScript

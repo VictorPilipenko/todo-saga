@@ -4,7 +4,6 @@ export const useWindowFocus = () => {
   const [focused, setFocused] = useState(false)
 
   useEffect(() => {
-
     // First render
     setFocused(document.hasFocus())
 
@@ -21,4 +20,4 @@ export const useWindowFocus = () => {
   }, [])
 
   return focused
-};
+}

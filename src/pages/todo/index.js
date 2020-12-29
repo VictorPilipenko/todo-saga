@@ -1,28 +1,29 @@
-
-import { useDispatch, useSelector } from "react-redux";
-import reduxQuerySync from 'redux-query-sync';
-import Template from "./containers/template";
-import { getTodos } from "../../store/actions/restful/todo";
-import queries from "../../store/queries/restful/todo";
-import store from "../../store"
-import TodosContainer from "./containers";
-import SocketComponent from "./components/socket";
+import { useDispatch, useSelector } from 'react-redux'
+import reduxQuerySync from 'redux-query-sync'
+import { getTodos } from '../../store/restful/todo/actions'
+import queries from '../../store/restful/todo/queries'
+import SocketComponent from './components/socket'
+import Template from './containers/template'
+import TodosContainer from './containers'
+import store from '../../store'
 reduxQuerySync({
   store,
   params: queries,
   initialTruth: 'location',
-  replaceState: true
+  replaceState: true,
 })
 
 const App = () => {
   const dispatch = useDispatch()
-  const { pagination } = useSelector(state => state.todos)
+  const { pagination } = useSelector((state) => state.todos)
 
   const getTodosAPI = () => {
-    dispatch(getTodos({
-      page: pagination.currentPage,
-      pageSize: pagination.pageSize
-    }))
+    dispatch(
+      getTodos({
+        page: pagination.currentPage,
+        pageSize: pagination.pageSize,
+      })
+    )
   }
 
   return (

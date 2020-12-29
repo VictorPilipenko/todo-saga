@@ -1,6 +1,6 @@
-import { useEffect } from "react"
-import { useDispatch } from "react-redux"
-import { useIsFirstMount } from "./useIsFirstMount"
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { useIsFirstMount } from './useIsFirstMount'
 
 const useDispatchOnFirstMount = ({ handler, condition = true }) => {
   const dispatch = useDispatch()
@@ -9,12 +9,7 @@ const useDispatchOnFirstMount = ({ handler, condition = true }) => {
     if (isFirstMount && condition) {
       dispatch(handler)
     }
-  }, [
-    dispatch,
-    isFirstMount,
-    handler,
-    condition
-  ])
+  }, [dispatch, isFirstMount, handler, condition])
 }
 
 export default useDispatchOnFirstMount

@@ -1,18 +1,15 @@
-import {
-  Form,
-  Input,
-} from 'antd'
-import { useDispatch, useSelector } from 'react-redux';
+import { Form, Input } from 'antd'
+import { useDispatch, useSelector } from 'react-redux'
 import SignLayout from '../../../layout/sign'
-import { passwordRecoveryStep1 } from '../../../store/actions/restful/auth';
-import { SubmitButton } from '../../../layout/sign/index.styled';
+import { passwordRecoveryStep1 } from '../../../store/restful/auth/actions'
+import { SubmitButton } from '../../../layout/sign/index.styled'
 
 const SignIn = () => {
   const dispatch = useDispatch()
-  const { loading } = useSelector(state => state.auth)
+  const { loading } = useSelector((state) => state.auth)
   const [form] = Form.useForm()
 
-  const onFinish = values => {
+  const onFinish = (values) => {
     dispatch(passwordRecoveryStep1(values))
   }
 
@@ -48,7 +45,7 @@ const SignIn = () => {
         </Form.Item>
       </Form>
     </SignLayout>
-  );
-};
+  )
+}
 
 export default SignIn

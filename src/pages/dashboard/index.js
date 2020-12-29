@@ -7,9 +7,9 @@ import { add, remove } from './utils'
 const { TabPane } = Tabs
 
 const initialPanes = [
-  { name: 'Tab 1', title: 'Content of Tab 1', id: uuidv4(), closable: true, },
-  { name: 'Tab 2', title: 'Content of Tab 2', id: uuidv4(), closable: true, },
-  { name: 'Tab 3', title: 'Content of Tab 3', id: uuidv4(), closable: true, },
+  { name: 'Tab 1', title: 'Content of Tab 1', id: uuidv4(), closable: true },
+  { name: 'Tab 2', title: 'Content of Tab 2', id: uuidv4(), closable: true },
+  { name: 'Tab 3', title: 'Content of Tab 3', id: uuidv4(), closable: true },
 ]
 
 const Dashboard = () => {
@@ -30,25 +30,27 @@ const Dashboard = () => {
         onActiveIDChange(newActiveKey)
         break
       }
-      default: return
+      default:
+        return
     }
   }
 
-  return <>
-    <Tabs
-      type="editable-card"
-      onChange={onActiveIDChange}
-      activeKey={activeID}
-      onEdit={onEdit}
-    >
-      {panes.map(pane => (
-        <TabPane tab={pane.name} key={pane.id} closable={pane.closable}>
-          <TabPaneContent title={pane.title} />
-        </TabPane>
-      ))}
-    </Tabs>
-    
-  </>
+  return (
+    <>
+      <Tabs
+        type="editable-card"
+        onChange={onActiveIDChange}
+        activeKey={activeID}
+        onEdit={onEdit}
+      >
+        {panes.map((pane) => (
+          <TabPane tab={pane.name} key={pane.id} closable={pane.closable}>
+            <TabPaneContent title={pane.title} />
+          </TabPane>
+        ))}
+      </Tabs>
+    </>
+  )
 }
 
 export default Dashboard

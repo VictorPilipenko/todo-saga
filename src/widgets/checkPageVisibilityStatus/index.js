@@ -13,8 +13,7 @@ const CheckPageVisibilityStatus = () => {
   useEffect(() => {
     if (isVisible) {
       setTime(null)
-    }
-    else {
+    } else {
       setTime(1000)
     }
   }, [isVisible])

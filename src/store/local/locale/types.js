@@ -1,0 +1,2 @@
+export const LOCALE_SAGA = 'LOCALE_SAGA'
+export const CHANGE_APP_LOCALE = 'CHANGE_APP_LOCALE'

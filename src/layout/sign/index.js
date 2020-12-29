@@ -6,14 +6,15 @@ import { Background, ErrorAlert } from './index.styled'
 const { Paragraph } = Typography
 
 const SignLayout = ({ children }) => {
-  const { error } = useSelector(state => state.auth)
+  const { error } = useSelector((state) => state.auth)
   return (
     <Background>
       {children}
-      {error && <ErrorAlert>
-        <Alert message={error} type="error" />
-      </ErrorAlert>
-      }
+      {error && (
+        <ErrorAlert>
+          <Alert message={error} type="error" />
+        </ErrorAlert>
+      )}
       <Paragraph>
         <ul>
           <li>

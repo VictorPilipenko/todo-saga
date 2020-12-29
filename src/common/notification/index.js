@@ -1,32 +1,31 @@
-
 import { notification as notifi } from 'antd'
-import config from "../../config/notification"
+import config from '../../config/notification'
 
 const notification = {
-  error: message => {
+  error: (message) => {
     notifi.error({
-      message: message || "error",
+      message: message || 'error',
       ...config,
     })
   },
-  success: message => {
+  success: (message) => {
     notifi.success({
-      message: message || "success",
+      message: message || 'success',
       ...config,
     })
   },
-  warning: message => {
+  warning: (message) => {
     notifi.warning({
-      message: message || "warning",
+      message: message || 'warning',
       ...config,
     })
   },
-  info: message => {
+  info: (message) => {
     notifi.info({
-      message: message || "info",
+      message: message || 'info',
       ...config,
     })
-  }
+  },
 }
 
 export default notification

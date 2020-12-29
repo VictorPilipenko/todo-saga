@@ -1,5 +1,5 @@
 const getAccessToken = () => {
-  return localStorage.getItem('access_token') || ""
+  return localStorage.getItem('access_token') || ''
 }
 
 const setAccessToken = (token) => {
@@ -11,7 +11,7 @@ const removeAccessToken = () => {
 }
 
 const getRefreshToken = () => {
-  return localStorage.getItem('refresh_token') || ""
+  return localStorage.getItem('refresh_token') || ''
 }
 
 const setRefreshToken = (token) => {
@@ -23,7 +23,7 @@ const removeRefreshToken = () => {
 }
 
 const getRecoveryPasswordConfirmToken = () => {
-  return localStorage.getItem('recovery_password_confirm_token') || ""
+  return localStorage.getItem('recovery_password_confirm_token') || ''
 }
 
 const setRecoveryPasswordConfirmToken = (token) => {

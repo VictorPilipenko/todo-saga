@@ -1,8 +1,8 @@
-import { useEffect } from "react";
-import { usePageVisibility } from "../../../../hooks/usePageVisibility";
-import { axiosCache } from "../../../../config/restful";
-import { useIsFirstMount } from "../../../../hooks/useIsFirstMount";
-import { TemplateBlock } from "./index.styled";
+import { useEffect } from 'react'
+import { usePageVisibility } from '../../../../hooks/usePageVisibility'
+import { axiosCache } from '../../../../config/restful'
+import { useIsFirstMount } from '../../../../hooks/useIsFirstMount'
+import { TemplateBlock } from './index.styled'
 
 const Template = ({ children, callOnPageVisibility }) => {
   const isFirstMount = useIsFirstMount()
@@ -10,19 +10,21 @@ const Template = ({ children, callOnPageVisibility }) => {
 
   useEffect(() => {
     if (
-      typeof callOnPageVisibility === "function" &&
+      typeof callOnPageVisibility === 'function' &&
       isVisible &&
       !isFirstMount
     ) {
-      console.log(`${callOnPageVisibility?.name} from Template on usePageVisibility hook by isVisible === true`)
+      console.log(
+        `${callOnPageVisibility?.name} from Template on usePageVisibility hook by isVisible === true`
+      )
       axiosCache.reset()
       callOnPageVisibility()
-    }
-  }, [ // eslint-disable-line
-    isVisible, 
+    } // eslint-disable-next-line
+  }, [
+    isVisible,
     // isFirstMount,
-    // callOnPageVisibility, 
-  ]) 
+    // callOnPageVisibility,
+  ])
 
   return <TemplateBlock>{children}</TemplateBlock>
 }

@@ -1,19 +1,15 @@
-import {
-  Form,
-  Input,
-  Checkbox,
-} from 'antd'
-import { useDispatch, useSelector } from 'react-redux';
+import { Form, Input, Checkbox } from 'antd'
+import { useDispatch, useSelector } from 'react-redux'
 import SignLayout from '../../../layout/sign'
-import { signIn } from '../../../store/actions/restful/auth';
-import { SubmitButton } from '../../../layout/sign/index.styled';
+import { signIn } from '../../../store/restful/auth/actions'
+import { SubmitButton } from '../../../layout/sign/index.styled'
 
 const SignIn = () => {
   const dispatch = useDispatch()
-  const { loading } = useSelector(state => state.auth)
+  const { loading } = useSelector((state) => state.auth)
   const [form] = Form.useForm()
 
-  const onFinish = values => {
+  const onFinish = (values) => {
     dispatch(signIn(values))
   }
 
@@ -25,7 +21,7 @@ const SignIn = () => {
         name="register"
         onFinish={onFinish}
         initialValues={{
-          rememberMe: false
+          rememberMe: false,
         }}
         scrollToFirstError
       >
@@ -58,13 +54,8 @@ const SignIn = () => {
         >
           <Input.Password />
         </Form.Item>
-        <Form.Item
-          name="rememberMe"
-          valuePropName="checked"
-        >
-          <Checkbox>
-            Remember Me
-          </Checkbox>
+        <Form.Item name="rememberMe" valuePropName="checked">
+          <Checkbox>Remember Me</Checkbox>
         </Form.Item>
         <Form.Item>
           <SubmitButton type="primary" htmlType="submit" loading={loading}>
@@ -73,7 +64,7 @@ const SignIn = () => {
         </Form.Item>
       </Form>
     </SignLayout>
-  );
-};
+  )
+}
 
 export default SignIn

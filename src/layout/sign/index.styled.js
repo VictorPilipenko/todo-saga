@@ -1,5 +1,5 @@
-import { Button } from "antd"
-import styled from "styled-components"
+import { Button } from 'antd'
+import styled from 'styled-components'
 import media from '../../common/responsive/device'
 
 export const Background = styled.div`

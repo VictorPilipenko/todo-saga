@@ -1,40 +1,39 @@
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid'
 
-const add = panes => {
-  const newPanes = [...panes];
+const add = (panes) => {
+  const newPanes = [...panes]
   const id = uuidv4()
   newPanes.push({
     name: 'New Tab',
     title: 'Content of new Tab',
-    id
+    id,
   })
   return {
-    newPanes, id
+    newPanes,
+    id,
   }
 }
 
 const remove = (targetKey, activeKey, panes) => {
-  let newActiveKey = activeKey;
-  let lastIndex;
+  let newActiveKey = activeKey
+  let lastIndex
   panes.forEach((pane, i) => {
     if (pane.id === targetKey) {
-      lastIndex = i - 1;
+      lastIndex = i - 1
     }
-  });
-  const newPanes = panes.filter(pane => pane.id !== targetKey);
+  })
+  const newPanes = panes.filter((pane) => pane.id !== targetKey)
   if (newPanes.length && newActiveKey === targetKey) {
     if (lastIndex >= 0) {
-      newActiveKey = newPanes[lastIndex].id;
+      newActiveKey = newPanes[lastIndex].id
     } else {
-      newActiveKey = newPanes[0].id;
+      newActiveKey = newPanes[0].id
     }
   }
   return {
-    newPanes, newActiveKey
+    newPanes,
+    newActiveKey,
   }
 }
 
-export {
-  add,
-  remove
-}
+export { add, remove }

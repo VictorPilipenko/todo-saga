@@ -1,21 +1,16 @@
-import {
-  Form,
-  Input,
-  Tooltip,
-  Checkbox
-} from 'antd'
 import { QuestionCircleOutlined } from '@ant-design/icons'
-import { SubmitButton } from '../../../layout/sign/index.styled';
+import { useDispatch, useSelector } from 'react-redux'
+import { Form, Input, Tooltip, Checkbox } from 'antd'
+import { SubmitButton } from '../../../layout/sign/index.styled'
+import { signUp } from '../../../store/restful/auth/actions'
 import SignLayout from '../../../layout/sign'
-import { signUp } from '../../../store/actions/restful/auth';
-import { useDispatch, useSelector } from 'react-redux';
 
 const SignUp = () => {
   const dispatch = useDispatch()
-  const { loading } = useSelector(state => state.auth)
+  const { loading } = useSelector((state) => state.auth)
   const [form] = Form.useForm()
 
-  const onFinish = values => {
+  const onFinish = (values) => {
     dispatch(signUp(values))
   }
 
@@ -70,9 +65,11 @@ const SignUp = () => {
             ({ getFieldValue }) => ({
               validator(rule, value) {
                 if (!value || getFieldValue('password') === value) {
-                  return Promise.resolve();
+                  return Promise.resolve()
                 }
-                return Promise.reject('The two passwords that you entered do not match!');
+                return Promise.reject(
+                  'The two passwords that you entered do not match!'
+                )
               },
             }),
           ]}
@@ -89,17 +86,18 @@ const SignUp = () => {
               </Tooltip>
             </span>
           }
-          rules={[{ required: true, message: 'Please input your nickname!', whitespace: true }]}
+          rules={[
+            {
+              required: true,
+              message: 'Please input your nickname!',
+              whitespace: true,
+            },
+          ]}
         >
           <Input />
         </Form.Item>
-        <Form.Item
-          name="rememberMe"
-          valuePropName="checked"
-        >
-          <Checkbox>
-            Remember Me
-          </Checkbox>
+        <Form.Item name="rememberMe" valuePropName="checked">
+          <Checkbox>Remember Me</Checkbox>
         </Form.Item>
         <Form.Item>
           <SubmitButton type="primary" htmlType="submit" loading={loading}>
@@ -108,7 +106,7 @@ const SignUp = () => {
         </Form.Item>
       </Form>
     </SignLayout>
-  );
-};
+  )
+}
 
 export default SignUp

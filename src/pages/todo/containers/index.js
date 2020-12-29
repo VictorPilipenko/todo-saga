@@ -1,35 +1,42 @@
 import { Row, Card, Space } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
 import { FormattedMessage } from 'react-intl'
-import { markTodoDone, deleteTodo, createTodo, getTodos } from '../../../store/actions/restful/todo'
-import AddTodoForm from '../components/add'
-import TodoList from '../components/list'
+import useDispatchOnFirstMount from '../../../hooks/useDispatchOnFirstMount'
 import { Default } from '../../../common/responsive'
 import { PageHeaderStyled } from './index.styled'
-import useDispatchOnFirstMount from '../../../hooks/useDispatchOnFirstMount'
+import AddTodoForm from '../components/add'
+import TodoList from '../components/list'
+import {
+  markTodoDone,
+  deleteTodo,
+  createTodo,
+  getTodos,
+} from '../../../store/restful/todo/actions'
 
 const TodosContainer = () => {
   const dispatch = useDispatch()
-  const { items, loading, error, pagination } = useSelector(state => state.todos)
+  const { items, loading, error, pagination } = useSelector(
+    (state) => state.todos
+  )
 
   useDispatchOnFirstMount({
     handler: getTodos({
       page: pagination.currentPage,
-      pageSize: pagination.pageSize
-    })
+      pageSize: pagination.pageSize,
+    }),
   })
 
   const handleFormSubmit = (todo) => {
     const data = {
       text: todo.name,
-      done: false
+      done: false,
     }
     dispatch(createTodo(data))
   }
 
   const handleRemoveTodo = (todo) => {
     const data = {
-      id: todo.details.id
+      id: todo.details.id,
     }
     dispatch(deleteTodo(data))
   }
@@ -37,7 +44,7 @@ const TodosContainer = () => {
   const handleTodoToggle = ({ todo, state }) => {
     const data = {
       id: todo.details.id,
-      done: state
+      done: state,
     }
     dispatch(markTodoDone(data))
   }
@@ -53,14 +60,14 @@ const TodosContainer = () => {
         </Row>
       </Default>
       <Space direction="vertical">
-        <Card title={
-          <FormattedMessage id="todo.input.title" />
-        }>
-          <AddTodoForm onFormSubmit={handleFormSubmit} loading={loading} pagination={pagination} />
+        <Card title={<FormattedMessage id="todo.input.title" />}>
+          <AddTodoForm
+            onFormSubmit={handleFormSubmit}
+            loading={loading}
+            pagination={pagination}
+          />
         </Card>
-        <Card title={
-          <FormattedMessage id="list.title" />
-        }>
+        <Card title={<FormattedMessage id="list.title" />}>
           <TodoList
             error={error}
             loading={loading}

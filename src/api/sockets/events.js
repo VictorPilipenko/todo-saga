@@ -1,3 +1,3 @@
 export const events = {
-  dateFresh: 'date+fresh'
+  dateFresh: 'date+fresh',
 }

@@ -1,8 +1,7 @@
-import CheckOnlineStatusModal from "./checkOnlineStatusModal"
-import CheckPageVisibilityStatus from "./checkPageVisibilityStatus"
+import CheckOnlineStatusModal from './checkOnlineStatusModal'
+import CheckPageVisibilityStatus from './checkPageVisibilityStatus'
 
 const Widgets = () => {
-
   return (
     <>
       <CheckOnlineStatusModal />

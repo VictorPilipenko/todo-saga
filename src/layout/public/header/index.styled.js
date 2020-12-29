@@ -1,5 +1,4 @@
-
-import styled from "styled-components"
+import styled from 'styled-components'
 import { Layout } from 'antd'
 
 const { Header } = Layout
@@ -15,7 +14,7 @@ export const HeadBlock = styled(Header)`
     font-size: 21px;
     color: #868e96;
   }
-  position: fixed; 
+  position: fixed;
   top: 0;
   right: 0;
   z-index: 1000;

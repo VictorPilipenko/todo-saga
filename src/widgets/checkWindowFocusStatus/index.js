@@ -7,8 +7,7 @@ const CheckWindowFocusStatus = () => {
   useEffect(() => {
     if (isWindowFocused) {
       console.log('окно в фокусе')
-    }
-    else {
+    } else {
       console.log('окно не в фокусе')
     }
   }, [isWindowFocused])

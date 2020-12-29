@@ -1,5 +1,5 @@
-import { css } from "styled-components";
-import sizes from "./sizes"
+import { css } from 'styled-components'
+import sizes from './sizes'
 
 const devices = {
   desktop: `@media only screen and (min-width: ${sizes.desktop.minWidth}px)`,
@@ -14,8 +14,8 @@ const media = Object.keys(devices).reduce((accumulator, label) => {
     ${size} {
       ${css(...args)};
     }
-  `;
+  `
   return accumulator
-}, {});
+}, {})
 
 export default media

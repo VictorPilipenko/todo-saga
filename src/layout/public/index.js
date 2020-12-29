@@ -7,9 +7,7 @@ const PublicLayout = ({ children }) => {
     <LayoutBlock>
       <LayoutInner>
         <Header />
-        <ContentBlock>
-          {children}
-        </ContentBlock>
+        <ContentBlock>{children}</ContentBlock>
         <Footer />
       </LayoutInner>
     </LayoutBlock>

@@ -1,26 +1,23 @@
-import {
-  Form,
-  Input
-} from 'antd'
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { Form, Input } from 'antd'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import SignLayout from '../../../layout/sign'
-import { SubmitButton } from '../../../layout/sign/index.styled';
-import { passwordRecoveryStep2 } from '../../../store/actions/restful/auth';
-import { setRecoveryPasswordConfirmToken } from '../../../utils/auth';
+import { SubmitButton } from '../../../layout/sign/index.styled'
+import { passwordRecoveryStep2 } from '../../../store/restful/auth/actions'
+import { setRecoveryPasswordConfirmToken } from '../../../utils/auth'
 
 const params = new URL(document.location).searchParams
 
 const SignUp = () => {
   const dispatch = useDispatch()
-  const { loading } = useSelector(state => state.auth)
+  const { loading } = useSelector((state) => state.auth)
   const [form] = Form.useForm()
 
   useEffect(() => {
     setRecoveryPasswordConfirmToken(params.get('token'))
-  },[])
+  }, [])
 
-  const onFinish = values => {
+  const onFinish = (values) => {
     dispatch(passwordRecoveryStep2(values))
   }
 
@@ -59,9 +56,11 @@ const SignUp = () => {
             ({ getFieldValue }) => ({
               validator(rule, value) {
                 if (!value || getFieldValue('password') === value) {
-                  return Promise.resolve();
+                  return Promise.resolve()
                 }
-                return Promise.reject('The two passwords that you entered do not match!');
+                return Promise.reject(
+                  'The two passwords that you entered do not match!'
+                )
               },
             }),
           ]}
@@ -75,7 +74,7 @@ const SignUp = () => {
         </Form.Item>
       </Form>
     </SignLayout>
-  );
-};
+  )
+}
 
 export default SignUp

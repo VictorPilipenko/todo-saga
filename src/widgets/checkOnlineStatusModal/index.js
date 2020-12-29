@@ -13,19 +13,16 @@ const CheckOnlineStatusModal = () => {
     if (!isFirstMount) {
       if (isOnline) {
         setMessage('доступ к сети восстановлен')
-      }
-      else {
+      } else {
         setMessage('отсутствует доступ к сети')
       }
       showModal()
     }
-  }, [isOnline])// eslint-disable-line
+  }, [isOnline]) // eslint-disable-line
 
   return renderModal({
     footer: null,
-    render: () => (
-      <h3>{message}</h3>
-    )
+    render: () => <h3>{message}</h3>,
   })
 }
 

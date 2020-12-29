@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react'
 
 export const useHover = () => {
   const [value, setValue] = useState(false)
@@ -20,9 +20,9 @@ export const useHover = () => {
           node.removeEventListener('mouseleave', handleMouseLeave)
         }
       }
-    },
+    }, // eslint-disable-next-line
     [ref.current] // Recall only if ref changes
-  );
+  )
 
   return [ref, value]
 }

@@ -21,7 +21,6 @@ export const Default = ({ children }) => {
   return isNotMobile ? children : null
 }
 
-
 // const Example = () => (
 //   <>
 //     <Desktop>Desktop or laptop</Desktop>
